@@ -1,0 +1,746 @@
+<app-sidebar></app-sidebar>
+<div class="h-dwn">
+  <div class="h-dwn-con">
+    <div class="d-flex flex-row-reverse">
+      <div class="p-1">
+        <div class="has-search">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input type="text" class="search-radius" placeholder="Search Candidates">
+        </div>
+      </div>
+      <div class="p-1">
+        <div class="actions">
+          <button type="button" class="btn act-btn" style="color:green;">Active</button>
+          <button type="button" class="btn act-btn act-on">All</button>
+          <button type="button" class="btn act-btn mr-0" style="color:red;">Closed</button>
+        </div>
+      </div>
+      <div class="p-1">
+        <button type="submit" class="btn add-candiate" (click)="takedemo(demomodal)">+ Add Candidate</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="h-dwnw">
+  <div class="leftdiv">
+    <input type="checkbox" id="checkAll">&nbsp;&nbsp;Select All
+  </div>
+  <div class="h-dwn-conw">
+    <!--  START -->
+    <div class="d-flex flex-row-reverse">
+      <div class="p-1">
+        <div class="col-md-1"><a href="/candidateslist"><i class="fa fa-align-justify" style="color: #548fcc;font-size: 40px;"></i></a></div>
+      </div>
+      <div class="p-1">
+        <div class="col-md-2">
+          <div ngbDropdown class="d-inline-block drpbn">
+            <button class="btn btn-info shnav drpdwn" id="dropdownBasic2" style="background-color: #548fcc;" ngbDropdownToggle>Hiring For &nbsp;</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <!-- <a class="dwns" *ngFor="let h of HiringFor" href="#"><button ngbDropdownItem class="dwnitm">{{h.HiringForName}}</button></a> -->
+              <a class="dwns" href="/videoprofile"> <button ngbDropdownItem class="dwnitm" >UI/UX</button></a>
+              <a class="dwns" href="/screening"> <button ngbDropdownItem class="dwnitm">Testing</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-1">
+        <div class="col-md-2">
+          <!-- <form [formGroup]="deptForm">
+            <div class="form-group">
+              <select formControlName="department" class="form-control" (change)="onChangeDepartment($event.target.value)">
+                  <option *ngFor="let d of deptList" value="{{d.Dept_Id}}">{{d.Dept_Name}}</option>
+              </select>
+            </div>
+          </form> -->
+          <div ngbDropdown class="d-inline-block drpbn">
+            <button class="btn btn-info shnav drpdwn" id="dropdownBasic1" style="background-color: #548fcc;" ngbDropdownToggle>Department &nbsp;</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <a class="dwns" *ngFor="let d of deptList" href="#"><button ngbDropdownItem class="dwnitm">{{d.Dept_Name}}</button></a>
+              <!-- <a class="dwns" href="/videoprofile"> <button ngbDropdownItem class="dwnitm" >UI/UX</button></a>
+              <a class="dwns" href="/screening"> <button ngbDropdownItem class="dwnitm">Testing</button></a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--   END -->
+  </div>
+</div>
+<div class="bdy-con">
+<div class="container">
+  <div class="scroll-div">
+  <ng-container *ngFor="let i of candsList;let n = index">
+    <div style="float: left; width:100%;">
+      <h4 class="cand-code">Candidate Code:{{i.Candidate_Id}}</h4>
+    </div>
+    <div class="can-bdy">
+      <div class="" style="float: left; width: 35%;color:#fff;">
+        <input type="checkbox" checked=true/><span style="margin-left: 20px;">{{i.Candidate_Name}}</span>
+      </div>
+      <div class="" style="float: right; width: 55%; margin-right: 5%;">
+        <ul class="top-icons">
+          <li><a href="#"><i class="fas fa-trash-alt"></i></a></li>
+          <li><a href="#"><i class="fas fa-star"></i></a></li>
+          <li><a href="#"><i class="fas fa-share"></i></a></li>
+          <li><a href="#"><i class="fas fa-download"></i></a></li>
+          <li><a href="#"><i class="far fa-play-circle"></i></a></li>
+          <li><a href="#"><i class="fas fa-search"></i></a></li>
+          <li><a href="#"><i class="fas fa-phone-alt"></i></a></li>
+      </ul>
+      </div>
+      <!-- Body Section Starts Here -->
+      <div class="bdy-sec">
+        <div class="bdy-lft">
+          <!-- Candiate Avathar -->
+          <div class="cad-avathar">
+            <img src="/assets/img/candidate icon.png" width="100" height="80" alt="" >
+          </div>
+          <!-- Candiate Avathar -->
+          <div class="cad-details">
+            <ul class="cad-det">
+              <li>Email : {{i.Candidate_Email}}</li>
+              <li>Phone No: {{i.Candidate_Phone}}</li>
+              <li>Location : {{i.Candidate_Location}}</li>
+              <li>Role : {{i.Candidate_Location}}</li>
+              <li>Experience : {{i.Candidate_Exp_Years}} Years,{{i.Candidate_Exp_Months}} months</li>
+            </ul>
+          </div>
+          <div class="topskils">
+            Top Skills - <span>{{i.Candidate_Skills}}</span>
+          </div>
+          <div class="add-skills">
+            <h5><a href="#"><i class="far fa-plus-square"></i> Top Skills</a></h5>
+            <div class="add-skills-label">
+              <label>MySQL</label>
+              <label>HTML</label>
+              <label>MANGO DB</label>
+              <label>Node js</label>
+            </div>
+          </div>
+        </div>
+        <div class="bdy-rgt">
+          <!-- Progress bar starts -->
+          <div class="pg-bar">
+            <span class="smart-rank">SMART Ranking</span>
+            <span class="per-fill">65%</span>
+            <progress value="65" max="100"></progress>
+          </div>
+
+          <!-- <div class="chart-container" style="position: relative; height:40vh; width:70vw">
+            <canvas id="canvas">{{barchart}}</canvas>
+          </div> -->
+          <!-- <div class="col-md-4"  > -->
+
+          <!-- </div> -->
+
+          <!-- Progress bar ends -->
+        <!-- Bar Section Starts Here -->
+        <div class="bar-sec">
+
+          <!-- <div> -->
+            <!-- <canvas id="myChart1"></canvas> -->
+            <!-- <canvas id="myChart1" height="200" width="300" backgroundcolor="red" ></canvas>
+          </div> -->
+
+          <div id="grad5">
+            <canvas  id="canvas{{n}}"  height="160" width="450" backgroundcolor="red">{{i.chart}}</canvas>
+          </div>
+
+        </div>
+        <!-- Bar Section Ends Here -->
+        </div>
+      </div>
+      <!-- Body Section Ends Here -->
+        <!-- Bottom Icons Sec Starts Here -->
+        <div class="btm-icons">
+          <div class="help_bulb">
+            <a><i class="fas fa-long-arrow-alt-down" (click)="i.isCollapsed = !i.isCollapsed" [attr.aria-expanded]="false" aria-controls="collapseBlock"></i></a>
+            &nbsp;&nbsp;&nbsp;<a ><i class="far fa-lightbulb fa-lg" style="color:#fff;" (click)="rankcand(analysis_modal,i.Candidate_Id)"></i></a> Click on "Tips icon ?" for better understanding
+                   on how to analyze the candidate
+          </div>
+          <div class="status_icons">
+            <div>
+              <span style="margin-left:50px;"><img src="/assets/img/pool icon.png" width="22" height="22"></span>
+              <span style="margin-left:25px;"><img src="/assets/img/shortlist icon.png" width="22" height="22"></span>
+              <span style="margin-left:25px;"><img src="/assets/img/hired icon.png" width="22" height="22"> </span>
+              <span style="margin-left:25px;"><img src="/assets/img/rejected icon.png" width="22" height="22"></span>
+            </div>
+            <div>
+              <span style="margin-left:50px;font-size:12px;">Pool</span>
+              <span style="margin-left:15px;font-size:12px;">Shortlist</span>
+              <span style="margin-left:15px;font-size:12px;">Hired</span>
+              <span style="margin-left:15px;font-size:12px;">Rejected</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="btm-icons">
+          <div>
+          <span class="download_icon">
+            <a href="#"><i class="fas fa-long-arrow-alt-down"></i></a>
+          </span>
+            <span style="margin-left:15px;">
+                <a href="#"><i class="far fa-lightbulb fa-lg"></i></a> Click on "Tips icon ?" for better understanding
+                   on how to analyze the candidate
+             </span>
+            <span style="margin-left:230px;">
+              <img src="/assets/img/pool icon.png" width="22" height="22">
+            </span>
+            <span style="margin-left:20px;">
+              <img src="/assets/img/shortlist icon.png" width="22" height="22">
+            </span>
+            <span style="margin-left:20px;">
+              <img src="/assets/img/hired icon.png" width="22" height="22">
+            </span>
+            <span style="margin-left:20px;">
+              <img src="/assets/img/rejected icon.png" width="22" height="22">
+            </span>
+          </div>
+          <div class="icon-labels">
+            <span style="margin-left:250px;">Pool</span>
+            <span>Shortlist</span>
+            <span>hired</span>
+            <span>Rejected</span>
+          </div>
+        </div> -->
+        <!-- Bottom Icons Sec Ends Here -->
+      <!--Right Side Box Icons Starts Here -->
+            <div class="box-rgt-cons">
+              <ul class="boxrgt-icons">
+                <li><a href="#"><img src="/assets/img/grid_box_icon.png" alt="gird" /></a></li>
+                <li><a href="#"><img src="/assets/img/thumbs_down.png" alt="gird" /></a></li>
+                <li><a ><i class="fas fa-pencil-alt" (click)="editcand(morestatmodal,i.Candidate_Name,i.Candidate_Email,i.Candidate_Phone,i.Candidate_Location,i.Candidate_Education,i.Candidate_work_exp,i.Candidate_Skills,i.Candidate_Id)"></i></a></li>
+                <li><a href="#"><img src="/assets/img/message_blue_icon.png" alt="gird" /></a></li>
+                <li><a href="#"><img src="/assets/img/notepad.png" alt="gird" /></a></li>
+              </ul>
+            </div>
+            <!-- Right Side Box Icons Ends Here -->
+    </div>
+
+    <div class ="last_div_bdy" id="collapseBlock" [ngbCollapse]="!i.isCollapsed">
+      <div class="leftbox" >
+        Applied 2 days ago  <span style="margin-left:10px;">View Resume&nbsp;&nbsp;<i class="fas fa-align-justify" (click)="view_modal(view_res,i.Candidate_Id,i.Resume_id)"></i></span>&nbsp;&nbsp;&nbsp;
+        <span>
+          <select id="more_static" name="more_static">
+            <option value="0">+ More static</option>
+          </select>
+        </span>
+      </div>
+      <div class="rightbox" >
+        <div>Screening Status: Online Test</div>
+        <div>Interview Status: Face to Fave Interview</div>
+      </div>
+    </div>
+    <!-- <table class="table blue-bg">
+      <tbody>
+        <tr>
+          <td width="95%" valign="top" class="no-tbd">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="30%" align="left" class="no-tbd"></td>
+                <td  width="70%" align="right" class="no-tbd"><img src="/assets/img/phone icon.png" width="16" height="16" alt="" style="float: left;">
+
+              </tr>
+            </table>
+          </td>
+          <td width="5%" valign="top" class="no-tbd">
+            <table width="100%" border="0">
+              <tr>
+                <td class="no-tbd"><img src="/assets/img/grid_box_icon.png" alt="gird" /></td>
+              </tr>
+              <tr>
+                <td class="no-tbd"><img src="/assets/img/grid_box_icon.png" alt="gird" /></td>
+              </tr>
+              <tr>
+                <td class="no-tbd"><img src="/assets/img/grid_box_icon.png" alt="gird" /></td>
+              </tr>
+              <tr>
+                <td class="no-tbd"><img src="/assets/img/grid_box_icon.png" alt="gird" /></td>
+              </tr>
+              <tr>
+                <td class="no-tbd"><img src="/assets/img/grid_box_icon.png" alt="gird" /></td>
+              </tr>
+            </table>
+
+         </td>
+        </tr>
+        <tr>
+          <td class="blue-bg text-white no-tbd" width="45%">
+            <table>
+               <tr>
+                 <td class="no-tbd"></td>
+                 <td class="no-tbd"></td>
+               </tr>
+               <tr>
+                <td class="no-tbd"></td>
+                <td class="no-tbd">
+
+                </td>
+              </tr>
+              <tr>
+                <td class="no-tbd" colspan="2">Top Skills - {{i.Candidate_Skills}}</td>
+              </tr>
+              <tr>
+
+              </tr>
+            </table>
+          </td>
+          <td class="blue-bg text-white no-tbd" width="50%">
+            <table>
+              <tbody>
+              <tr>
+                <td class="no-tbd"></td>
+                <td class="no-tbd" width="60%">
+
+                </td>
+              </tr>
+              <tr>
+                <td class="no-tbd" colspan="2">
+                  <table>
+                    <tr>
+                      <td class="no-tbd"><span>SMART Ranking</span></td>
+                      <td class="no-tbd">35% </td>
+                    </tr>
+                    <tr>
+                      <td class="no-tbd" colspan="2"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no-tbd">
+                  <table>
+                    <tr>
+                      <td class="no-tbd">Chat</td>
+                      <td class="no-tbd">Experience</td>
+                      <td class="no-tbd">Location</td>
+                      <td class="no-tbd">Role</td>
+                      <td class="no-tbd">Skills</td>
+                      <td class="no-tbd">Domain</td>
+                      <td class="no-tbd">Culture</td>
+                      <td class="no-tbd">Assesment</td>
+                    </tr>
+                    <tr>
+                      <td class="no-tbd">
+                        <div class="progress progress-bar-vertical">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%;"> </div>
+                        </div>
+                      </td>
+                      <td class="no-tbd">
+                        <div class="progress progress-bar-vertical">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%;"> </div>
+                        </div>
+                      </td>
+                      <td class="no-tbd">
+                        <div class="progress progress-bar-vertical">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%;"> </div>
+                        </div>
+                      </td>
+                      <td class="no-tbd">
+                        <div class="progress progress-bar-vertical">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%;"> </div>
+                        </div>
+                      </td>
+                      <td class="no-tbd">
+                        <div class="progress progress-bar-vertical">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%;"> </div>
+                        </div>
+                      </td>
+                      <td class="no-tbd">
+                        <div class="progress progress-bar-vertical">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%;"> </div>
+                        </div>
+                      </td>
+                      <td class="no-tbd">
+                        <div class="progress progress-bar-vertical">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%;"> </div>
+                        </div>
+                      </td>
+                      <td class="no-tbd">
+                        <div class="progress progress-bar-vertical">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%;"> </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+             </tbody>
+            </table>
+          </td>
+          <td class="no-tbd" width="5%" style="background-color:#fff;">
+
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+</ng-container>
+</div>
+</div>
+</div>
+
+<!-- card band -->
+
+
+
+
+ <!-- popup window for MORE STATICS START-->
+ <ng-template #morestatmodal>
+
+  <div class="modal-data" style=" width: 800px; float: left; ">
+
+                  <div class="row" style="margin-right: 150px;">
+                  <div class="modal-header" style="background: #90bfef; width: 100%; color: #fff; align-items: center; ">
+                  <h4 class="modal-title" id="modal-basic-title" >Edit Candidate's Details</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="edt_mdl.hide()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+
+                <div class="column2" style="background-color:#b4cce4; height: 700px;">
+                  <label style="border: #fff;">You can refer the CV to fill missing details</label>
+                        <form [formGroup]="popupForm"   (ngSubmit)="onAdd()" >
+                        <!-- <div  *ngFor="let i of candsList" >  -->
+                           <label for="cname" style="color:white;">Name</label>
+                             <div class="form-group">
+                              <input type="text" class="form-control dgn" formControlName="cname" placeholder="Name" [ngClass]="{ 'is-invalid': subsecond && d.cname.errors }"  [(ngModel)]="Candidate_Name" required>
+                              <div *ngIf="subsecond && d.cname.errors" class="invalid-feedback">
+                              <div *ngIf="d.cname.errors.required">Name is required</div>
+                              </div>
+                             </div>
+
+                          <label for="cemail" style="color:white;">Email</label>
+                          <div class="form-group">
+                            <input type="text" class="form-control dgn" formControlName="cemail" placeholder="Email" [ngClass]="{ 'is-invalid': subsecond && d.cemail.errors }" [(ngModel)]="Candidate_Email" required>
+                            <div *ngIf="subsecond && d.cemail.errors" class="invalid-feedback">
+                            <div *ngIf="d.cemail.errors.required">Email is required</div>
+                            <div *ngIf="d.cemail.errors.pattern">Please Enter Valid email-Id</div>
+                            </div>
+                          </div>
+
+                          <label for="cno" style="color:white;"> Contact Number</label>
+                            <div class="form-group">
+                             <input type="text" class="form-control dgn" formControlName="cno" placeholder="Phone No." [ngClass]="{ 'is-invalid': subsecond && d.cno.errors }" [(ngModel)]="Candidate_Phone" required>
+                             <div *ngIf="subsecond && d.cno.errors" class="invalid-feedback">
+                             <div *ngIf="d.cno.errors.required">Contact Number is required</div>
+                             </div>
+                          </div>
+
+                          <label for="workexperience" style="color:white;">Work Experience</label>
+                          <div class="form-group">
+                              <input type="text" class="form-control dgn" formControlName="c_exp" placeholder="Experience in Years & months" [ngClass]="{ 'is-invalid': subsecond && d.c_exp.errors }"  [(ngModel)]="Candidate_Exp" required>
+                              <div *ngIf="subsecond && d.c_exp.errors" class="invalid-feedback">
+                              <div *ngIf="d.c_exp.errors.required">Years Required</div>
+                              </div>
+                          </div>
+
+                          <label for="cloc" style="color:white;"> Location</label>
+                          <div class="form-group">
+                            <input type="text" name="function" class="form-control dgn" formControlName="cloc" [ngClass]="{ 'is-invalid': subsecond && d.cloc.errors }" [(ngModel)]="Candidate_Location" required>
+                            <div *ngIf="subsecond && d.cloc.errors" class="invalid-feedback">
+                              <div *ngIf="d.cloc.errors.required">Location is required</div>
+                              </div>
+                          </div>
+
+                            <label for="skills" style="color:white;">Skills</label>
+                            <div class="form-group">
+                              <input type="text" class="form-control dgn" formControlName="cskills" placeholder="Skills" [ngClass]="{ 'is-invalid': subsecond && d.cskills.errors }"  [(ngModel)]="Candidate_Skills" required>
+                              <div *ngIf="subsecond && d.cskills.errors" class="invalid-feedback">
+                              <div *ngIf="d.cskills.errors.required">Skills Required</div>
+                              </div>
+                            </div>
+
+                            <label for="workexperience" style="color:white;">Education</label>
+                            <div class="form-group">
+                              <input type="text" class="form-control dgn" formControlName="ceducation" placeholder="Education" [ngClass]="{ 'is-invalid': subsecond && d.ceducation.errors }"  [(ngModel)]="Candidate_Education" required>
+                              <div *ngIf="subsecond && d.ceducation.errors" class="invalid-feedback">
+                              <div *ngIf="d.ceducation.errors.required">Education Required</div>
+                              </div>
+                            </div>
+
+                              <br>
+                              <button type="submit" class="btn btn-primary" style="width: 85px;">Edit </button>
+                              &nbsp;&nbsp;&nbsp;
+                              &nbsp;
+                              <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 85px;" (click)="edt_mdl.hide()">Close</button>
+                              <br><br>
+
+                        <!-- </div> -->
+                       </form>
+                </div>
+              </div>
+ </div>
+</ng-template>
+<!-- popup window for MORE STATICS END -->
+
+<!-- popup window for ANALYSE CANDIDATE MODAL START -->
+<ng-template #analysis_modal>
+
+  <div class="modal-data" style=" width: 800px; float: left; ">
+
+
+                  <div class="row" style="margin-right: 150px;">
+                  <div class="modal-header" style="background: #90bfef; width: 100%; color: #fff; align-items: center; ">
+                    <h4 class="modal-title" id="modal-basic-title" >Analyse Candidate Details</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="rnk_mdl.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+
+                  <div class="column2" style="background-color:#b4cce4; height: 390px;">
+
+                        <form [formGroup]="rankForm"   (ngSubmit)="getRank()" >
+                          <div class="row">
+                          <div class="col-md-4">
+                            <label for="Name" class="ipthdr">Select Open Job </label>
+                           </div>
+
+                           <div class="col-md-8">
+                            <div class="form-group">
+                              <select name="function" class="form-control dgn" formControlName="jbname" [ngClass]="{ 'is-invalid': subthird && r.jbname.errors }" [(ngModel)]="jd" required>
+                                <option  *ngFor="let i of userData2"   value="{{i.JobInfo_Id}}">{{i.JobPostion_Name}}</option>
+                              </select>
+                              <div *ngIf="subthird && r.jbname.errors" class="invalid-feedback">
+                                  <div *ngIf="r.jbname.errors.required">Job Name is required</div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                          <label for="cemail" style="color:white;">Skill Priority</label>
+                          </div>
+
+                          <div class="col-md-6">
+                             <div class="form-group">
+                              <input type="text" class="form-control dgn" formControlName="skl_num" placeholder="Priority Of Skills ( Give 1-4)" [ngClass]="{ 'is-invalid': subthird && r.skl_num.errors }"  [(ngModel)]="skill" required>
+                              <div *ngIf="subthird && r.skl_num.errors" class="invalid-feedback">
+                              <div *ngIf="r.skl_num.errors.required">Enter Skill Priority Number</div>
+                            </div>
+                             </div>
+                             </div>
+
+                          <div class="col-md-6">
+                          <label for="cno" style="color:white;">Job Summary Priority</label>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                             <input type="text" class="form-control dgn" formControlName="sum_num" placeholder="Priority Of Job Summary ( Give 1-4)" [ngClass]="{ 'is-invalid': subthird && r.sum_num.errors }" [(ngModel)]="summary" required>
+                             <div *ngIf="subthird && r.sum_num.errors" class="invalid-feedback">
+                              <div *ngIf="r.sum_num.errors.required">Enter Job Summary Priority Number </div>
+                            </div>
+                          </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <label for="cemail" style="color:white;">Role Priority</label>
+                          </div>
+
+                      <div class="col-md-6">
+                       <div class="form-group">
+                        <input type="text" class="form-control dgn" formControlName="rol_num" placeholder="Priority Of Role ( Give 1-4)" [ngClass]="{ 'is-invalid': subthird && r.rol_num.errors }" [(ngModel)]="role" required>
+                         <div *ngIf="subthird && r.rol_num.errors" class="invalid-feedback">
+                         <div *ngIf="r.rol_num.errors.required">Enter Role Priority Number</div>
+                         </div>
+                        </div>
+                      </div>
+
+                          <div class="col-md-6">
+                             <label for="cloc" style="color:white;">Responsibility Priority</label>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                             <input type="text" name="function" class="form-control dgn" placeholder="Priority Of Responsibility ( Give 1-4)" formControlName="res_num" [ngClass]="{ 'is-invalid': subthird && r.res_num.errors }" [(ngModel)]="responsibility" required>
+                             <div *ngIf="subthird && r.res_num.errors" class="invalid-feedback">
+                              <div *ngIf="r.res_num.errors.required">Enter Responsibility Priority Number</div>
+                            </div>
+                          </div>
+                          </div>
+                    <br>
+                    </div>
+                    <br> <br>
+                   <div class="row">
+                     <div class="col-md-6">
+                      <button type="submit" class="btn btn-primary">Generate Report </button>
+                     </div>
+                     <div class="col-md-4">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal"  (click)="rnk_mdl.hide()">Close</button>
+                     </div>
+                   </div>
+              </form>
+              </div>
+              </div>
+          </div>
+
+</ng-template>
+<!-- popup window for ANALYSE CANDIDATE MODAL END -->
+
+<ng-template #resume_modal>
+
+  <div class="modal-data" style=" width: 800px; float: left; ">
+
+
+                  <div class="row" style="margin-right: 150px;">
+                  <div class="modal-header" style="background: #90bfef; width: 100%; color: #fff; align-items: center; ">
+                    <h4 class="modal-title" id="modal-basic-title" >Review Candidate's Resume</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="res_modal.hide()">
+
+                      <span aria-hidden="true">&times;</span>
+
+                    </button>
+                    </div>
+
+
+             <div class="column1" style="background-color:#d3e5f8; width : 100%">
+                  <h2>Resume of Candidate</h2>
+                  <!-- <p>Here resume will be shown..</p> -->
+                   <!-- <pdf-viewer [src]="path"
+                  [original-size]="false"
+                    ></pdf-viewer> -->
+
+                    <ngx-doc-viewer [url]="doc" viewer="url"
+                     style="width:100%;height:50vh;"
+                    ></ngx-doc-viewer>
+                  <!-- <button type="submit" class="btn btn-primary" style="width: 77px;" (click)="OnParse()">Submit</button> -->
+
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px;" (click)="res_modal.hide()">Close</button>
+
+                </div>
+
+
+
+              </div>
+
+
+
+
+ </div>
+
+</ng-template>
+
+<ng-template #view_res>
+
+  <div class="modal-data" style=" width: 800px; float: left; ">
+
+
+                  <div class="row" style="margin-right: 150px;">
+                  <div class="modal-header" style="background: #90bfef; width: 100%; color: #fff; align-items: center; ">
+                    <h4 class="modal-title" id="modal-basic-title" >Review Candidate's Resume</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="viw_res_modal.hide()">
+
+                      <span aria-hidden="true">&times;</span>
+
+                    </button>
+                    </div>
+
+
+             <div class="column1" style="background-color:#d3e5f8; width : 100%; height: 770px;">
+                  <!-- <h2>Resume of Candidate</h2>
+                  <p>Here resume will be shown..</p> -->
+
+                   <!-- <pdf-viewer   *ngIf="pdf_fle" [src]="cnd_resume"
+                   [original-size]="false"></pdf-viewer> -->
+
+                  <pdf-viewer
+                        [src]="cnd_resume"
+                        [render-text]="true"
+                        [show-all]="true"
+                        [original-size]="false"
+                        style="display:block;">
+                  </pdf-viewer>
+
+
+                  <!-- <ngx-doc-viewer
+                   [url]="assets/Ramesh.docx"
+                   viewer="google"
+                   style="width:100%;height:50vh;">
+                  </ngx-doc-viewer> -->
+
+                <!-- <ngx-doc-viewer
+                  url="https://file-examples-com.github.io/uploads/2017/02/file-sample_100kB.docx"
+                  viewer="google"
+                  style="width:100%;height:93vh;"
+                >
+                </ngx-doc-viewer> -->
+
+                <!-- <ngx-doc-viewer  *ngIf = "!pdf_fle" [url]="doc" [viewer]="viewer"
+                style="width:100%;height:50vh;">
+                </ngx-doc-viewer> -->
+
+                 <br> <br>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px;" (click)="viw_res_modal.hide()" >Close</button>
+
+                </div>
+
+
+
+              </div>
+
+
+
+
+ </div>
+
+
+</ng-template>
+       <!-- Modal -->
+       <ng-template #demomodal>
+        <div class="modal-content">
+
+          <div class="modal-body" style="color: white;
+            background: #4380bf;
+            font-weight: 600;
+            font-size: 16px; top: 120px; text-align: center; width: 150%;" >
+            <h2>Add Candidates</h2>
+
+            <!-- <pdf-viewer [src]="src"
+            [original-size]="false"
+              ></pdf-viewer> -->
+
+            <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()">
+
+
+              <!-- <div class="container" appDnd (fileDropped)="onFileDropped($event)"> -->
+                <div class="dropzone"  appDnd (fileDropped)="onFileDropped($event)" style="background: #fff;">
+                <input type="file"  #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event.target.files)" />
+                <div *ngIf="submitted && f.profile.errors" class="invalid-feedback">
+                  <div *ngIf="f.profile.errors.required">Resume is required</div>
+              </div>
+                <img src="/assets/img/ic-upload-file.svg" alt="">
+                <h3>Drag and drop file here</h3>
+                <h3>or</h3>
+                <label id="label1" for="fileDropRef">Browse for file</label>
+              </div>
+
+
+
+              <div class="files-list">
+                <div class="single-file" *ngFor="let file of files; let i = index">
+                  <img src="/assets/img/ic-file.svg" width="45px" alt="file">
+                  <div class="info">
+                    <h6 class="name">
+                      {{ file?.name }}
+                    </h6>
+                    <p class="size">
+                      {{ formatBytes(file?.size) }}
+                    </p>
+                    <app-progress [progress]="file?.progress"></app-progress>
+                  </div>
+                  <img src="/assets/img/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)">
+                </div>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary" style="width: 77px;" (click)="resm_modal(resume_modal)">Submit</button>
+
+              <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px;" (click)="modalRef.hide()">Close</button>
+             </form>
+               </div>
+            </div>
+          </ng-template>
+
+
+
+
+

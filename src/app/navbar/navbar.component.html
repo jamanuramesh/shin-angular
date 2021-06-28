@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /> 
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+ 
+
+</head>
+<body>
+<div class="header" (scroll)="onWindowScroll($event);">
+  <!-- <header id="header" class="fixed-top"> -->
+<div class="container-fluid" id="navbar" >
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="logo float-left">
+          <a href="/" class="scrollto"><img src="/assets/img/smarthireinlogo.png" alt="" class="img-fluid"></a>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+        <div class="col-md-6 float-right">
+    <!-- <div class="navbar-brand logo float-left">
+      <a href="#" class="scrollto"><img src="/assets/img/smarthireinlogo.png" alt="" class="img-fluid"></a>
+     </div> -->
+  
+     <div class="navbar-brand logo float-right" style="margin-top: -60px; margin-right: -40px;">
+  <button class="navbar-toggler tgl" type="button" (click)="toggleNavbar()" style="margin-right: 42px;">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+     </div>
+
+
+  <div class="collapse navbar-collapse col px-0 px-lg-2 flex-fill"
+       [ngClass]="{ 'show': navbarOpen }">
+    <!-- <ul class="navbar-nav mr-auto">
+      <li  class="nav-item">
+        <a  class="nav-link shnav"  href="/home">Home</a>
+        </li>
+        <li  class="nav-item">
+        <a  class="nav-link shnav"  href="/aboutus">About</a>
+        </li>
+       
+            <li class="nav-item">
+            <div ngbDropdown class="d-inline-block drpbn">
+              <button class="btn btn-outline-primary shnav drpdwn" id="dropdownBasic1" ngbDropdownToggle>Products</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              
+                <a class="dwns" href="/videoprofile"> <button ngbDropdownItem class="dwnitm" >Smart Video Profile</button></a>
+                <a class="dwns" href="/screening"> <button ngbDropdownItem class="dwnitm">Smart Screening</button></a>
+                <a class="dwns" href="/jd"> <button ngbDropdownItem class="dwnitm">Smart JD</button></a>
+                <a class="dwns" href="/analysis"> <button ngbDropdownItem class="dwnitm">Smart Analysis</button></a>
+                <a class="dwns" href="/chatbot"><button ngbDropdownItem class="dwnitm">Smart Chat</button></a>
+                <a class="dwns" href="/datacentric"><button ngbDropdownItem class="dwnitm">Smart Decisions</button></a>
+              </div>
+            </div>
+              </li>
+            
+        <li  class="nav-item">
+        <a  class="nav-link shnav"  href="/blog">Blog</a>
+        </li>
+        <li  class="nav-item">
+          <a  class="nav-link shnav"  href="/careers">Careers</a>
+          </li>
+          <li  class="nav-item">
+            <a  class="nav-link shnav"  href="/contact">Contact</a>
+            </li>
+          </ul> -->
+        
+            <ul class="navbar-nav shicins"> 
+            <li class="sclIcn" style="background: #1c74b1 !important;"><a href="https://www.linkedin.com/company/smarthirein-ai" class="linkedin" ><i class="fa fa-linkedin lnkdn"></i></a></li>
+            <li class="sclIcn" style="background: #1c74b1 !important;"><a href="https://twitter.com/smarthirein" class="twitter"><i class="fa fa-twitter icns"></i></a></li>
+           <li class="sclIcn" style="background: #1c74b1 !important;"> <a href="https://www.facebook.com/SmarthireIn-104474981280009" class="facebook"><i class="fa fa-facebook icns"></i></a></li>
+            <li class="sclIcn" style="background: #1c74b1 !important;"><a href="https://www.instagram.com/smarthirein/" class="instagram"><i class="fa fa-instagram icns"></i></a></li>
+         </ul>
+        
+
+  </div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<br> <br> <br>
+
+
+
+</body>
+</html>

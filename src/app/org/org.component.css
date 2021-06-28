@@ -1,0 +1,9 @@
+input::placeholder {
+  color:#dcdcdc;
+}
+  
+::ng-deep .modal-content{
+  display: contents !important;
+}
+  
+

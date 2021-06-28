@@ -1,0 +1,170 @@
+<ng-sidebar-container style="position: static;">
+
+  <ng-sidebar [opened] ="opened">
+   
+   
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo float-left">
+          <a href="/" ><img src="/assets/img/smarthireinlogo.png" alt="" style="width: 156%;
+            padding: 9px;
+            border-radius: 30px;
+            float: top;
+            margin-left: -44px;"></a>
+        </div>
+      </div>
+    </div>
+
+    <ul class="menu" style="list-style: none;">
+      <li><a href="/jbdashboard">Jobs</a></li>
+      <li><a href="/candidates">Candidates</a></li>
+      <!-- <li><a href="/mapping">Mapping</a></li> -->
+      <li><a href="/interview-stages">Hiring Stages</a></li>
+      <li><a href="/calender">Calender</a></li>
+      <!-- <li> <div ngbDropdown class="d-inline-block drpbn">
+        <button class="btn btn-outline-primary shnav drpdwn" id="dropdownBasic1" ngbDropdownToggle>Products</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <a class="dwns" href="/videoprofile"> <button ngbDropdownItem class="dwnitm" >Smart Video Profile</button></a>
+          <a class="dwns" href="/screening"> <button ngbDropdownItem class="dwnitm">Smart Screening</button></a>
+          <a class="dwns" href="/jd"> <button ngbDropdownItem class="dwnitm">Smart JD</button></a>
+          <a class="dwns" href="/analysis"> <button ngbDropdownItem class="dwnitm">Smart Analysis</button></a>
+          <a class="dwns" href="/chatbot"><button ngbDropdownItem class="dwnitm">Smart Chat</button></a>
+          <a class="dwns" href="/datacentric"><button ngbDropdownItem class="dwnitm">Smart Decisions</button></a>
+        </div>
+      </div></li> -->
+      <li>
+        <div ngbDropdown class="d-inline-block drpbn">
+          <a  id="dropdownBasic1" ngbDropdownToggle>Reports</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a class="dwns" href="/jb-reports"> <button ngbDropdownItem class="dwnitm" >Job Reports</button></a>
+            <a class="dwns" href="/candreports"> <button ngbDropdownItem class="dwnitm">Candidate Reports</button></a>
+            <a class="dwns" href="/hirperformance"> <button ngbDropdownItem class="dwnitm">Hiring Performance</button></a>
+          </div>
+        </div>
+      </li>
+      <br> <br> <br>
+      <li><a href="/profilesetup"><i class="fa fa-cog icn" style="color: #fff;"></i> Settings</a></li>
+      
+    </ul>
+  </ng-sidebar>
+   <div ng-sidebar-content>
+   
+     <button (click)= "toggleSidebar()">
+       Open Contents
+     </button>
+    
+    
+   </div>
+</ng-sidebar-container>
+
+<div class="container-fluid">
+  <div class="row" style="background: #0e216c!important; padding: 10px;">
+  <div class="col-md-2"></div>
+  <div class="col-md-5"> 
+    <form class="example"  style="margin-left:42px;max-width:300px;float:left;">
+        <input type="text" name="JobPostion_Name" class="search-radius" placeholder="">
+        <span id="search" style="margin-left: -25px;"><i class="fa fa-search"></i></span>
+    <!-- <input type="text" placeholder=""  name="JobPostion_Name" >
+    <button type="submit" id="search" ><i class="fa fa-search" ></i></button> -->
+  </form>
+</div>
+  
+  <!-- <div class="logo float-right">
+    <img src="/assets/img/bell icon.png" alt="" width="22" height="22" style="margin-left:280px">
+  </div> -->
+  
+
+  <div class="d-flex flex-row-reverse">
+    <div class="p-1">
+        <h6 style="vertical-align:center;color: white">{{this.fname}}  {{this.lname}}</h6>
+    </div>
+    <div class="p-1">
+      <img src="/assets/img/info icon.png" alt="" width="22" height="22" style="margin-left:10px">
+    </div>
+    <div class="p-1">
+      <img src="/assets/img/message icon.png" alt="" width="22" height="22" style="margin-left:10px">
+    </div>
+    <div class="p-1">
+      <img src="/assets/img/bell icon.png" alt="" width="22" height="22" style="margin-left:280px">
+    </div>
+  </div>
+
+  <!-- <div class="p-1"> -->
+    <!-- <div class="action" style="margin-left:10px"> -->
+      <!-- <div class="profile" >
+        <img src="/assets/img/account.png"  alt="" width="25" height="25" (click)="toggleprofile()">
+      </div>  
+      <div class="menu" style="margin-right: -1200px;color: white;margin-top: 64px;" *ngIf="opened1">
+        <h6 style="margin-left: 20px;margin-top: 15px;">{{this.email}}</h6>
+        <ul style="list-style-type:none;padding: 0%; margin-left: 20px;">
+          <li>Product Tour</li>
+          <li>Terms of Use</li>
+          <li>Privacy Policy</li>
+          <button (click)='onlogout()' id="signout"><a href="/" style="color: white;"><li>Sign Out</li></a></button>
+        </ul>
+      </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+ 
+
+    <div class="action rightdiv">
+      <div class="profile" (click)="toggleprofile()">
+        <img src="/assets/img/account.png"  alt="" width="25" height="25">
+      </div>
+      <div class="menu" style="color: white;" *ngIf="opened1">
+        <h6 style="margin-left: 20px;margin-top: 15px;">{{this.email}}</h6>
+        <ul style="list-style-type:none;padding: 0%; margin-left: 20px;">
+          <li>Product Tour</li>
+          <li>Terms of Use</li>
+          <li>Privacy Policy</li>
+          <button (click)='onlogout()' id="signout"><a href="/" style="color: white;"><li>Sign Out</li></a></button>
+        </ul>
+      </div>
+    </div>
+    <!-- <h6 style="margin-left:50px;vertical-align:center;color: white">{{this.fname}}  {{this.lname}}</h6> -->
+  </div>
+
+
+
+
+<!-- <div style="height: 80vh;">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Responsive Navigation</span>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+       
+        <a href="#" mat-button>Menu Item 1</a>
+        <a href="#" mat-button>Menu Item 2</a>
+        <a href="#" mat-button>Menu Item 3</a>
+        <a href="#" mat-button>Menu Item 4</a>
+        <a href="#" mat-button>Menu Item 5</a>
+        <a href="#" mat-button>Menu Item 6</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a href="#" mat-list-item>Menu Item 1</a>
+        <a href="#" mat-list-item>Menu Item 2</a>
+        <a href="#" mat-list-item>Menu Item 3</a>
+        <a href="#" mat-list-item>Menu Item 4</a>
+        <a href="#" mat-list-item>Menu Item 5</a>
+        <a href="#"mat-list-item>Menu Item 6</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
+  </mat-sidenav-container>
+</div> -->
+
+
+
+
+

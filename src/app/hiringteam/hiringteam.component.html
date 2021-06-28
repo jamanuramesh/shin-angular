@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /> 
+</head>
+<body class="body">
+  <br> <br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+<!--   
+   <form [formGroup]="profileForm"  (ngSubmit)="onSubmit()"> -->
+    <div class="card jobcrd">
+    <div class="row hdr">
+      <h5>Hiring Team</h5>
+    </div>
+    <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <h5>Recruiter</h5>
+                <br>
+              <img alt="Andrew Jones" src="/assets/img/femaleavtar.png"  class="rounded-circle img-responsive mt-2" width="90" height="90">
+              <br> 
+              <h6>Bhavana</h6>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <h5>Hiring Manager</h5>
+              <br>
+
+             
+
+              <div class="plscrcle" > 
+
+                <!-- <span [tooltip]="HtmlContent" content-type="template"style="background-color: #7eacdc;"placement="right"show-delay="500">Ramesh G </span> -->
+              
+                
+                 <select  style="height: 15px; width: 20px; margin-top: 10px; background-color:#548fcc; color:white;">
+                     
+               
+                  <option style="background-color: darkblue;" *ngFor='let l of tmList'>{{l.User_Name}}</option>
+                  
+                </select>
+                
+                </div>
+                
+               
+    
+</div>
+              
+            
+                    
+                
+                <ng-template #HtmlContent>
+                <p>Jello G</p>
+               
+                </ng-template>
+                
+                
+    
+
+            
+                
+                       
+
+              <div class="col-md-4">
+              <h5>Interviewer</h5>
+              <br>
+              <div class="plscrcle">
+              <select  style="height: 15px; width: 20px; margin-top: 10px; background-color:#548fcc; color:white;">
+           
+                <option style="background-color: darkblue;" *ngFor='let l of tmList'>{{l.User_Name}}</option>
+
+              </select>
+            
+              </div>
+            </div>
+
+
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <h5>Sourcer</h5>
+              <br>
+              <div class="plscrcle">
+                <select  style="height: 15px; width: 20px; margin-top: 10px; background-color:#548fcc; color:white;">
+           
+                  <option style="background-color: darkblue;" *ngFor='let l of tmList'>{{l.User_Name}}</option>
+
+                </select>
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Co-Ordinater</h5>
+              <br>
+              <div class="plscrcle">
+                <select  style="height: 15px; width: 20px; margin-top: 10px; background-color:#548fcc; color:white;">
+           
+                  <option style="background-color: darkblue;" *ngFor='let l of tmList'>{{l.User_Name}}</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <h5>Profile Viewer</h5>
+              <br>
+              <div class="plscrcle">
+                <select  style="height: 15px; width: 20px; margin-top: 10px; background-color:#548fcc; color:white;">
+           
+                  <option style="background-color: darkblue;" *ngFor='let l of tmList'>{{l.User_Name}}</option>
+
+                </select>
+              </div>
+            </div>
+        
+       </div>
+
+    </div>
+  </div>
+  <br> <br>   
+            <div class="row">
+              <div class="col-md-4">
+                <button type="submit" class="btsave">Save</button>
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-3">
+                <span class="progress" type="button">    
+                  <label class="pro" style="color: white">25%</label>
+                   <progress style="width: 105%" value="25" max="100">25%</progress>
+                </span>
+              </div>
+                <div class="col-md-3">
+                  <a href="/hirinstages"> <button type="submit" class="btsave">Next Step</button></a>
+                </div>
+             
+              
+            </div>  
+   <!-- </form> -->
+   </div>
+  </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+::ng-deep #DataTables_Table_0_wrapper{
+    width: 100% !important;
+}
+.dpdn{
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+    position: absolute;
+    transform: translate(0px, 36px);
+    border-radius: 8px;
+    background: aliceblue;
+}
+.dropdown-item:focus, .dropdown-item:hover{
+    background-color: #d3e5f8 !important;
+}
+.shnav{
+    background-color: #548fcc;
+    border-radius: 16px;
+    height: 36px;
+    border-color: #548fcc;
+}
+.dwns{
+    text-decoration: none !important;
+}
+
+#table td, #table th {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  #table th {background-color: white;}
+   #table tr:nth-child(even){background-color: #c3dcf5;} 
+
+    #table tr:nth-child(odd){background-color: white;} 
+  

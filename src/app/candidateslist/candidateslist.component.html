@@ -1,0 +1,150 @@
+<app-sidebar></app-sidebar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <br> 
+      <div class="row">
+        <div class="col-md-2">
+          <div ngbDropdown class="d-inline-block drpbn">
+            <button class="btn btn-info shnav drpdwn" id="dropdownBasic1" style="background-color: #548fcc;" ngbDropdownToggle>Department</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+             
+              <a class="dwns" href="/videoprofile"> <button ngbDropdownItem class="dwnitm" >UI/UX</button></a>
+              <a class="dwns" href="/screening"> <button ngbDropdownItem class="dwnitm">Testing</button></a>
+              
+            </div>
+          </div>
+          <!-- <button type="submit" class="btn btn-info" style="background-color: #548fcc;">Department</button> -->
+        </div>
+        <div class="col-md-2">
+          <div ngbDropdown class="d-inline-block drpbn">
+            <button class="btn btn-info shnav drpdwn" id="dropdownBasic2" style="background-color: #548fcc;" ngbDropdownToggle>Hire For</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+             
+              <a class="dwns" href="/videoprofile"> <button ngbDropdownItem class="dwnitm" >UI/UX</button></a>
+              <a class="dwns" href="/screening"> <button ngbDropdownItem class="dwnitm">Testing</button></a>
+              
+            </div>
+          </div>
+          <!-- <button type="submit" class="btn btn-info" style="background-color: #548fcc;">Hire For</button> -->
+        </div>
+        
+        <div class="col-md-2">
+          <div ngbDropdown class="d-inline-block drpbn">
+            <button class="btn btn-info shnav drpdwn" id="dropdownBasic3" style="background-color: #548fcc;" ngbDropdownToggle>Custom Field</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+             
+              <a class="dwns" href="/videoprofile"> <button ngbDropdownItem class="dwnitm" >UI/UX</button></a>
+              <a class="dwns" href="/screening"> <button ngbDropdownItem class="dwnitm">Testing</button></a>
+              
+            </div>
+          </div>
+          <!-- <button type="submit" class="btn btn-info" style="background-color: #548fcc;">Custom Field</button> -->
+        </div>
+        
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-info" style="color: #548fcc;
+          background-color: #d3e5f8;
+          border-color: #d3e5f8;
+          font-weight: 600;" >+Add Candidate</button>
+        </div>
+
+        <div class="col-md-1"><a href="/candidates"><i class="fa fa-th" style="color: #548fcc;font-size: 40px;"></i></a></div>
+        <div class="col-md-1"><a href="/candidateslist"><i class="fa fa-align-justify" style="color: #548fcc;font-size: 40px;"></i></a></div>
+           
+        
+      </div>
+      <br>
+
+
+        <!-- Modal -->
+  <ng-template #demomodal>
+    <div class="modal-content">
+    
+      <div class="modal-body" style="color: white;
+        background: #4380bf;
+        font-weight: 600;
+        font-size: 16px; top: 120px; text-align: center;" >
+        <h2>Add Candidate</h2>
+    
+        <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()">
+    
+          <div class="form-group">
+            <label>Resume*</label>
+            <input type="text" formControlName="firstname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" [(ngModel)]="firstname"  required >
+            
+             <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                <div *ngIf="f.firstname.errors.required">First Name is required</div>
+            </div>
+        </div> 
+        <br>
+        <h5>Drag and drop single or multiple resumes or browse from your device.</h5>
+    
+    
+    
+          
+          <button type="submit" class="btn btn-primary" style="width: 77px;">Submit</button>
+         
+          <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px;" (click)="modalRef.hide()">Close</button>
+         </form>
+           </div>
+        </div> 
+      </ng-template>
+      
+     
+
+    </div>
+  </div>
+
+  
+
+</div>
+
+<div class="container-fluid" style="background: #d3e5f8;">
+  <div class="row">
+   
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+       <div class="row" style="padding: 10px; overflow-x:auto;">
+        <table class="table table-striped table-bordered table-sm row-border hover"  style="width: 100%;">
+         
+         
+<!--          
+          <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions" style="width: 100%;">
+          -->
+         
+         
+         
+          <thead style="color: #548fcc;">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Location</th>
+              <th>Phone Number</th>
+              <th>Experience</th>
+            </tr>
+          </thead>
+          <tbody>
+           <!-- <tr *ngFor="let group of data" style="font-weight: 500;"> -->
+
+            <tr *ngFor="let i of candsList" style="font-weight: 500;">
+
+
+                <td>{{i.Candidate_Name}}</td>
+                 <td>{{i.Candidate_Email}}</td>
+                 <td> {{i.Candidate_Location}}</td>
+                 <td>{{i.Candidate_Phone}}</td>
+                 <td>{{i.Candidate_Exp_Years}} Years, <br> {{i.Candidate_Exp_Months}} Months</td> 
+                
+             </tr>
+          </tbody>
+        </table>
+       </div>
+    </div>
+  </div>
+  <br> <br>  <br> <br>
+</div>
+
+

@@ -1,0 +1,838 @@
+<app-sidebar3></app-sidebar3>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <title></title>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /> 
+
+</head>
+
+<body>
+
+ 
+
+  
+
+ 
+
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-md-2">
+
+        <div class="logo float-left">
+
+          <a href="/" ><img src="/assets/img/smarthireinlogo.png" alt="" style="width: 80%;"></a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+ </div>
+
+ 
+
+ 
+
+<div style="text-align: center;">
+
+    <span class="blue">1</span>
+
+    <h1 class="profile">Location</h1>    
+
+</div>
+
+ 
+
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10">
+
+ 
+
+<!-- 
+
+      <div class="container-fluid">
+
+        <div class="row">
+
+              <div class="col-md-1"></div>
+
+               <div class="col-md-12"> -->
+
+      
+
+  <div class="card setupscard" style="text-align: left; margin-left: 180px;">
+
+ 
+
+           <form [formGroup]="locationForm"  (ngSubmit)="onlocSubmit()">
+
+           
+
+              <div class="card-body">
+
+                 <div class="row">
+
+                            <div class="col-md-14">
+
+                          
+
+                            <div class="row">
+
+                              <div class="col-md-2">
+
+                                <label for="locname" style="color:white;">Location Name</label>
+
+                              </div>
+
+              
+
+                              <div class="col-md-4">
+
+                                <div class="form-group">
+
+                                  <input type="text" class="form-control dgn" formControlName="locname" placeholder="e. g. head office" [ngClass]="{ 'is-invalid': subsecond && d.locname.errors }" [(ngModel)]="loc_name"  required>
+
+                            
+
+                                  <div *ngIf="subsecond && d.locname.errors" class="invalid-feedback">
+
+                                  <div *ngIf="d.locname.errors.required">Location is required</div>
+
+                                  </div>
+
+                                </div>
+
+                            </div>
+
+ 
+
+                          <!-- <div class="col-md-1"></div>  -->
+
+                            
+
+                      
+
+                            <div class="col-md-2">
+
+                              <label for="city" style="color:white;">City</label>
+
+                            </div>
+
+              
+
+                            <div class="col-md-4">
+
+                              <div class="form-group" style="text-align: left;">
+
+                                        
+
+                                    <select name="function" class="form-control dgn"  formControlName="city" [ngClass]="{ 'is-invalid': subsecond && d.city.errors }" [(ngModel)]="loc_city"   required>
+
+                                      <option></option>
+
+                                      <option>Hyderabad</option>
+
+                                      <option>Aurangabad</option>
+
+                                      <option>Pune</option>
+
+                                      <option>Mumbai</option>
+
+                                      <option>Delhi</option>
+
+                                    </select>
+
+              
+
+                                    <div *ngIf="subsecond && d.city.errors" class="invalid-feedback">
+
+                                    <div *ngIf="d.city.errors.required">City is required</div>
+
+                              </div>
+
+                              </div>
+
+                            </div>
+
+               
+
+ 
+
+                 
+
+                        <div class="col-md-2">
+
+                          <label for="state" style="color:white;">State</label>
+
+                          
+
+                        </div>
+
+                      
+
+                      
+
+                        <div class="col-md-4" >
+
+                                <div class="form-group">
+
+                                <input type="text"class="form-control dgn" formControlName="state" placeholder="" [(ngModel)]="loc_state" [ngClass]="{ 'is-invalid': subsecond && d.state.errors }" >
+
+                              
+
+                              
+
+                                <div *ngIf="subsecond && d.state.errors" class="invalid-feedback">
+
+                                  <div *ngIf="d.state.errors.required">State is required</div>
+
+                              </div>
+
+                        </div>
+
+                        </div>
+
+                        <!-- <div class="col-md-1"></div> -->
+
+ 
+
+                        
+
+                            <div class="col-md-2">
+
+                            <label for="zip" style="color:white;">Zip Code</label>
+
+                          </div>
+
+                          <div class="col-md-4">
+
+                              <div class="form-group">
+
+                              <input type="text" class="form-control dgn" formControlName="zip" placeholder="" [(ngModel)]="loc_zip" [ngClass]="{ 'is-invalid': subsecond && d.zip.errors }">
+
+                              
+
+                              <div *ngIf="subsecond && d.zip.errors" class="invalid-feedback">
+
+                                <div *ngIf="d.zip.errors.required">Zip Code is required</div>
+
+                              </div>
+
+                              </div>
+
+              
+
+                          </div>
+
+      
+
+                  
+
+                          <div class="col-md-2">
+
+                            <label for="cntry" style="color:white;">Country</label>
+
+                          </div>
+
+                
+
+                          
+
+                        <div class="col-md-4" >
+
+                          <div class="form-group">
+
+                
+
+                                <select name="function" class="form-control dgn"  formControlName="cntry" [ngClass]="{ 'is-invalid': subsecond && d.cntry.errors }" [(ngModel)]="loc_country" required>
+
+                                  <option> </option>
+
+                                  <option>India</option>
+
+                                  <option>America</option>
+
+                                  <option>China</option>
+
+                                  <option>Italy</option>
+
+                                  <option>Japan</option>
+
+                                </select>
+
+                                
+
+                                <div *ngIf="subsecond && d.cntry.errors" class="invalid-feedback">
+
+                                <div *ngIf="d.cntry.errors.required">Country is required</div>
+
+                                </div>
+
+                              </div>
+
+                            </div>
+
+ 
+
+                            <!-- <div class="col-md-1"></div> -->
+
+                  
+
+                        <div class="col-md-2">
+
+                              <label for="zone" style="color:white; align-items: center;">Time Zone</label>
+
+                        </div>
+
+ 
+
+                       
+
+ 
+
+                          <div class="col-md-4">
+
+                                <div class="form-group">
+
+                                
+
+                                  <select name="function" class="form-control dgn"  formControlName="zone" [ngClass]="{ 'is-invalid': subsecond && d.zone.errors }"  required>
+
+                                    <option> </option>
+
+                                    <option>Aurangabad, Maharashtra (GMT+5:30)</option>
+
+                                    <option>Washington, DC, USA (GMT-5)</option>
+
+                                    <option>Chicago (GMT-6)</option>
+
+                                  </select>
+
+                        
+
+                                    <div *ngIf="subsecond && d.zone.errors" class="invalid-feedback">
+
+                                    <div *ngIf="d.zone.errors.required">Time Zone is required</div>
+
+                                    
+
+                                    </div>
+
+                                </div>
+
+ 
+
+                               
+
+                        
+
+                              
+
+                           
+
+                           </div>
+
+                        </div>
+
+                        <div class="col-md-4"></div>
+
+                      
+
+                        <div class="col-md-3">
+  
+                        
+  
+                              <button type="submit" class="btsave" style="width: 105px; height: 40px; margin-left: 390px; margin-top: 40px;">Save</button>
+  
+                             
+  
+                        
+  
+                    </div>
+  
+   
+  
+                        <br>
+
+                      </div> 
+
+
+
+
+
+                      
+
+                    </div>
+
+                 
+
+               
+
+ 
+
+         
+
+                                    </div>
+
+                                      
+
+                                    
+
+                                    
+
+                                      
+
+                                    
+
+                                  
+
+                                 
+
+                                    </form>
+
+        
+
+ 
+
+     
+
+        <table class="table" style="color:white; background: #548fcc">
+
+          <thead>
+
+            <tr>
+
+              <th>Location Name</th>
+
+              <th>City</th>
+
+              <th>State</th>
+
+              <th>Country</th>
+
+              <th>Zipcode</th>
+
+              <th></th>
+
+              <th> &nbsp; Actions</th>
+
+              
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+ 
+
+              <tr *ngFor="let l of tmloc">
+
+                <td>{{l.Loc_Name}}</td>
+
+                <td>{{l.Loc_City}}</td>
+
+                <td>{{l.Loc_State}}</td>
+
+                <td>{{l.Loc_Country}}</td>
+
+                <td>{{l.Loc_ZipCode}}</td>
+
+ 
+
+                <td></td>
+
+                
+
+                
+
+ 
+
+                
+
+                <td><button type="button" class="btn btn-primary" 
+
+                  (click)="editLocation(editLoc,l.Loc_Id, l.Loc_Name, l.Loc_City,l.Loc_State,l.Loc_Country,l.Loc_ZipCode)">Edit <i class="fa fa-pencil"></i></button>
+
+               
+
+        
+
+        
+
+                 <button type="button" class="btn btn-primary" style="margin-left: 10px;"
+
+                    (click)="deletelocation(deleteLocmodal,l.Loc_Id)">Delete <i class="fa fa-trash"></i></button>
+
+                  </td>
+
+            
+
+ 
+
+            </tbody>
+
+            </table>
+
+        </div>
+
+           <!-- Edit Team Modal -->
+
+ <ng-template #editLoc>
+
+  <div class="modal-content">
+
+ 
+
+    
+
+      <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+
+        <h4 class="modal-title" id="modal-basic-title">Edit Location</h4>
+
+      <!-- <h2>Edit Department</h2> -->
+
+      <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+
+        <span aria-hidden="true">&times;</span>
+
+      </button>
+
+     </div>
+
+     <div class="modal-body" style="
+
+     background:#fff;
+
+     font-weight: 600;
+
+     font-size: 16px;" >
+
+      <form [formGroup]="Locform"  (ngSubmit)="onEditLocation()">
+
+        <div class="row">
+
+        <div class="col-md-6">
+
+          <label for="Name">Location Name</label>
+
+         </div>
+
+ 
+
+         <div class="col-md-6">
+
+            <div class="form-group">
+
+             <input type="text" class="form-control dgn" formControlName="loc_name" placeholder="" [ngClass]="{ 'is-invalid': subf && f.loc_name.errors }" [(ngModel)]="name" required>
+
+             <div *ngIf="subf && f.loc_name.errors" class="invalid-feedback">
+
+             <div *ngIf="f.loc_name.errors.required">Location  Name is required</div>
+
+             </div>
+
+            </div>
+
+        </div>
+
+     
+
+        <div class="col-md-6">
+
+         <label for="Name" >Location City</label>
+
+        </div>
+
+         <div class="col-md-6">
+
+           <div class="form-group">
+
+ 
+
+            <input type="text" class="form-control dgn" formControlName="loccity" placeholder="Location City" [ngClass]="{ 'is-invalid': subf && f.loccity.errors }" [(ngModel)]="city" required>
+
+             
+
+             <div *ngIf="subf && f.loccity.errors" class="invalid-feedback">
+
+                 <div *ngIf="f.loccity.errors.required">Location City  is required</div>
+
+             </div>
+
+             
+
+       </div>
+
+     </div> 
+
+ 
+
+     <div class="col-md-6">
+
+       <label for="Name" >State</label>
+
+      </div>
+
+ 
+
+     <div class="col-md-6">
+
+       <div class="form-group">
+
+ 
+
+        <input type="text" class="form-control dgn" formControlName="locstate" placeholder="State" [ngClass]="{ 'is-invalid': subf && f.locstate.errors }" [(ngModel)]="state" required>
+
+         
+
+         <div *ngIf="subf && f.locstate.errors" class="invalid-feedback">
+
+             <div *ngIf="f.locstate.errors.required">State is required</div>
+
+         </div>
+
+       </div>
+
+   </div>
+
+ 
+
+   <div class="col-md-6">
+
+    <label for="Name" >Country</label>
+
+   </div>
+
+ 
+
+  <div class="col-md-6">
+
+    <div class="form-group">
+
+ 
+
+     <input type="text" class="form-control dgn" formControlName="cntry" placeholder="Country" [ngClass]="{ 'is-invalid': subf && f.cntry.errors }" [(ngModel)]="country" required>
+
+      
+
+      <div *ngIf="subf && f.cntry.errors" class="invalid-feedback">
+
+          <div *ngIf="f.cntry.errors.required">Country is required</div>
+
+      </div>
+
+    </div>
+
+</div>
+
+ 
+
+<div class="col-md-6">
+
+  <label for="Name" >Zip</label>
+
+ </div>
+
+ 
+
+<div class="col-md-6">
+
+  <div class="form-group">
+
+ 
+
+   <input type="text" class="form-control dgn" formControlName="loczip" placeholder="Zipcode" [ngClass]="{ 'is-invalid': subf && f.loczip.errors }" [(ngModel)]="zip" required>
+
+    
+
+    <div *ngIf="subf && f.loczip.errors" class="invalid-feedback">
+
+        <div *ngIf="f.loczip.errors.required">  Zip is required</div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+ 
+
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;">Submit</button>
+
+       
+
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">Close</button>
+
+       </div>
+
+      </form>
+
+         </div>
+
+      </div>
+
+</ng-template>
+
+ 
+
+<ng-template #deleteLocmodal>
+
+  <div class="modal-content">
+
+ 
+
+    
+
+      <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+
+        <h4 class="modal-title" id="modal-basic-title">Delete Team</h4>
+
+      <!-- <h2>Edit Department</h2> -->
+
+      <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+
+        <span aria-hidden="true">&times;</span>
+
+      </button>
+
+     </div>
+
+     <div class="modal-body" style="
+
+     background:#fff;
+
+     font-weight: 600;
+
+     font-size: 16px;" >
+
+      
+
+ 
+
+        <div class="row">
+
+        
+
+        <div class="col-md-6">
+
+         <label for="Name" >Are you sure you want to delete?</label>
+
+        </div> <br> <br>
+
+
+
+
+ 
+
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;" (click)="onDeleteLocation()">Yes</button>
+
+       
+
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">No</button>
+
+       </div>
+
+    
+
+         </div>
+
+      </div>
+
+</ng-template>
+
+ 
+
+   
+
+ 
+
+        
+
+      
+
+      
+
+      <br><br> <br>
+
+                <div class="row" style="margin-left: 50px;">
+
+                  <div class="col-md-4">
+
+                    <a href="/org"><button type="button" style=" margin-left: 280px; width: 105px; height: 35px;" class="btsave">Back</button></a>
+
+                  </div>
+
+
+                  <div class="col-md-4">
+
+                    <span class="progress" type="button" style="margin-left: 50px;">    
+
+                      <label class="pro" style="color: white; width: 75%;">50%</label>
+
+                       <progress style="width: 1%" value="50" max="100" style="margin-left: -150px;" >50%</progress>
+
+                    </span>
+
+                  </div>
+
+                    <div class="col-md-3">
+
+                   <a href="/team"> <button type="submit" class="btsave" style=" margin-left: 15px; width: 105px; height: 35px;">Next Step</button></a>
+
+                    </div>
+
+                 
+
+                  
+
+                </div>   
+
+         
+
+                   
+
+                
+
+                                
+
+                
+
+ 
+
+          <br><br>
+
+      
+
+      
+
+     
+
+                  
+
+                     
+
+      
+
+      </div>
+
+      </div>

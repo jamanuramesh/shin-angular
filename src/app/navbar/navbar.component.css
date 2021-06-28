@@ -1,0 +1,105 @@
+.body{
+    font-family: Myriad Pro !important;
+}
+.shnav{
+    font-weight: 700;
+    color: #1c74b1 !important;
+}
+.sclIcn{
+    font-size: 17px !important;
+       display: inline-block !important;
+       
+       color: #fff !important;
+     
+      
+       margin-right: 4px !important;
+       border-radius: 50% !important;
+       text-align: center !important;
+       width: 36px !important;
+       height: 36px !important;
+       transition: 0.3s !important;
+   }
+.lnkdn{
+    color: #1c74b1;
+    background: #fff;
+    padding: 2px;
+    margin-top: 8px;
+    margin-left: 1px;
+    border-radius: 10%;
+}
+.icns{
+    color: #ffffff;
+    margin-top: 9px;
+}
+.tgl{
+    background: #0d1f67 !important;
+}
+@media screen and (max-width: 600px) {
+
+    .shicins{
+      flex-direction: row !important;
+    }
+   
+   }
+   @media screen and (min-width: 600px) {
+
+    .shicins{
+      flex-direction: row !important;
+      margin-left: 30px;
+    }
+   
+   }
+.drpdwn{
+   background: none !important;
+    border: white !important;
+}
+.btn-outline-primary.focus, .btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgb(255, 255, 255) !important;
+}
+.dwnitm{
+    font-weight: 500 !important;
+    color: #1c74b1 !important;
+}
+.dwnitm:hover {
+    color: #16181b;
+    /* text-decoration: none; */
+    background-color: #130451;
+    color: white !important;
+}
+.dwns{
+    text-decoration: none !important;
+}
+
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    z-index: 10000;
+   
+    /* -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25); */
+    /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25); */
+    transition: all 0.2s ease-in-out;
+    height: auto;
+    background-color: #fff;   
+}
+.header.active {
+    background-color: #fff;  
+    /* background: #c6dced; */
+   
+}
+
+@media screen and (max-width: 600px) {
+    .drpbn{
+        margin-left: -15px;
+    }
+}
+@media screen and (min-width: 600px) {
+    .drpbn{
+        margin-top: 3px;
+    }
+}

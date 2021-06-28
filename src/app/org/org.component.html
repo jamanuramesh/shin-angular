@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /> 
+
+</head>
+<body>
+
+ 
+  <app-sidebar3></app-sidebar3>
+
+
+  <!-- Header -->
+  <div class="container-fluid" >
+    <div class="row">
+      <div class="col-md-2">
+        <div class="logo float-left">
+          <a href="/" ><img src="/assets/img/smarthireinlogo.png" alt="" style="width: 80%;"></a>
+        </div>
+      </div>
+    </div>
+ </div>
+
+<div style="text-align: center;">
+    <span class="blue">2</span>
+    <h1 class="profile">Organization Setup</h1>    
+</div>
+ <!-- /Header -->
+
+
+ <!-- Comapny Setup -->
+<div class="container-fluid" style="margin-left: 150px;">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+  
+   <form [formGroup]="orgForm"  (ngSubmit)="onsave()">
+    <div class="card setupscard" style="text-align: center;">
+      <div class="card-body">
+    <div class="row">
+      <div class="col-md-9">
+        
+        <div class="row">
+         <div class="col-md-4">
+          <label for="Name" style="color:white; margin-right: 5px;">Company Name</label>
+        </div>
+
+        <div class="col-md-4">
+           <div class="form-group">
+            <input type="text" class="form-control dgn" formControlName="cmpname" placeholder="Company Name" [ngClass]="{ 'is-invalid': submitted && f.cmpname.errors }" [(ngModel)]="org_name" required>
+            <div *ngIf="submitted && f.cmpname.errors" class="invalid-feedback">
+            <div *ngIf="f.cmpname.errors.required">Company Name is required</div>
+            </div>
+           </div>
+       </div>
+       <div class="col-md-4"></div>
+      <br>
+
+        <div class="col-md-4">
+        <label for="Name" style="color:white; margin-right: 50px;">Web Site</label>
+       </div>
+        <div class="col-md-4">
+          <div class="form-group">
+           <input type="text" class="form-control dgn" formControlName="website" placeholder="Web Site URL" [ngClass]="{ 'is-invalid': submitted && f.website.errors }" [(ngModel)]="org_website" required>
+           <div *ngIf="submitted && f.website.errors" class="invalid-feedback">
+           <div *ngIf="f.website.errors.required">Email Id is required</div>
+          
+           </div>
+          </div>
+      </div>
+      <div class="col-md-4"></div>
+ 
+      <div class="col-md-4">
+      <label for="Name" style="color:white; margin-right: 60px;">Phone</label>
+     </div>
+     <div class="col-md-4">
+        <div class="form-group">
+         <input type="text" class="form-control dgn" formControlName="mobile" placeholder="Phone No" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" [(ngModel)]="mobile" required>
+         <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+         <div *ngIf="f.mobile.errors.required">Phone Number is required</div>
+         </div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+ 
+    <div class="col-md-4">
+    <label for="Name" style="color:white; margin-right: 50px;">Industry</label>
+   </div>
+   <div class="col-md-4">
+      <div class="form-group">
+       <input type="text" class="form-control dgn" formControlName="industry" placeholder="Industry Name" [ngClass]="{ 'is-invalid': submitted && f.industry.errors }"  [(ngModel)]="org_industry" required>
+       <div *ngIf="submitted && f.industry.errors" class="invalid-feedback">
+       <div *ngIf="f.industry.errors.required">Industry is required</div>
+       </div>
+      </div>
+  </div>
+  <div class="col-md-4"></div>
+
+      </div>
+
+</div>
+<div class="col-md-3">
+  <div class="text-center">
+      <img  [src]="urllink"  class="rounded-circle img-responsive mt-2" width="128" height="128">
+      <br>
+      <span class="edticn">
+        <i class="fa fa-pencil-square-o penicn" aria-hidden="true"></i>
+      </span>
+     
+      <div class="mt-2">
+          <input type="file"  (change) = "selectFiles($event)">
+      </div>
+
+  </div>
+</div>
+</div>
+<br>  
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <button type="submit" class="btsave" style="height: 40px; width: 105px;  margin-left: 400px;">Save</button>
+</div>
+ </div>
+
+</div>
+</form>  
+
+<br>
+<div class="rap">
+  <h4 style="font-weight:550px;color:#548fcc;" >Select Departments</h4>
+  </div>
+
+<br>
+<div class="card setupscard">
+<div class="card-body">
+  <form [formGroup]="deptForm"  (ngSubmit)="onAdd()">
+  <div class="row">
+   
+    <div class="col-md-2"><label for="Name" style="color:white;">Department</label></div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <input type="text" class="form-control dgn" formControlName="deptname" placeholder="Department Name" [ngClass]="{ 'is-invalid': subsecond && d.deptname.errors }" [(ngModel)]="dept_name" required>
+        <div *ngIf="subsecond && d.deptname.errors" class="invalid-feedback">
+        <div *ngIf="d.deptname.errors.required">Department Name is required</div>
+        </div>
+       </div>
+    </div>
+    <div class="col-md-4">
+      <button type="submit" class="btsave" style="width: 105px; height: 40px;">Add</button>
+    </div>
+
+  </div>
+</form>
+
+
+
+
+<!-- <input type="search" class="search" id="name" placeholder="search" style="text-align:center;">
+&nbsp; -->
+
+
+
+
+<table class="hoverTable" style="width:100%">
+<br>
+
+<tr>
+<!-- <th style="color:white;font-size:15px;"></th> -->
+
+<th style="color:white;font-size:15px; ">Department Name</th>
+<th style="color:white;font-size:15px;">  Created By</th>
+<th style="color:white;font-size:15px;">     Last Modified</th>
+<th style="color:white;font-size:15px;">Actions</th>
+
+</tr>
+
+<br>
+<tr *ngFor="let i of deptList" >
+<!-- <td data-th="sno" style="color:white;">{{i.Dept_Id}}</td> -->
+<td data-th="Movie Title" style="color:white;">{{i.Dept_Name}}</td>
+<td data-th="Genre"style="color:white;">{{i.Dept_Crtd_By}}</td>
+<td data-th="Year"style="color:white;">{{i.Dept_Crtdt | date: 'dd/MM/yyyy'}}</td>
+
+<td><button type="button" class="btn btn-primary" style="margin-top: 5px;"
+(click)="edit(editmodal,i.Dept_Name, i.Dept_Id)">Edit <i class="fa fa-pencil"></i></button></td>
+
+<!-- <td href='#' style="cursor:pointer; color:white;">Edit <i class="fa fa-pencil"></i></td> -->
+<br>
+</tr>
+
+</table>
+
+</div></div>
+
+
+</div>
+</div>
+
+
+
+
+<br> <br> <br>
+<div class="row">
+<div class="col-md-1"></div>
+    <div class="col-md-10">
+            <div class="row">
+              <div class="col-md-4">
+               <a href="/profilesetup"> <button type="button"  class="btsave" style="margin-left: 250px; width: 105px; height: 35px;">Back</button></a>
+              </div>
+             
+              <div class="col-md-3">
+                <span class="progress" type="button">    
+                  <label class="pro" style="color: white">25%</label>
+                   <progress style="width: 105%" value="25" max="100">25%</progress>
+                </span>
+              </div>
+                <div class="col-md-3">
+               <a href="/location"> <button type="submit" class="btsave" style="width: 105px; height: 35px;">Next Step</button></a>
+                </div>
+             </div>  
+
+            </div>   
+            </div>
+            </div>      
+            
+          
+         <!-- Modal -->
+  <ng-template #editmodal>
+    <div class="modal-content">
+
+      
+        <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+          <h4 class="modal-title" id="modal-basic-title">Edit Department</h4>
+        <!-- <h2>Edit Department</h2> -->
+        <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+       </div>
+       <div class="modal-body" style="
+       background:#fff;
+       font-weight: 600;
+       font-size: 16px;" >
+        <form [formGroup]="editForm"  (ngSubmit)="onEdit()">
+    
+         <div class="form-group">
+            <label>Department Name*</label>
+            <input type="text" formControlName="dept" class="form-control"  [ngClass]="{ 'is-invalid': subthird && g.dept.errors }" [(ngModel)]="deptname" required>
+            <div *ngIf="subthird && g.dept.errors" class="invalid-feedback">
+                <div *ngIf="g.dept.errors.required">Department Name is required</div>
+            </div>
+          </div>
+    
+         
+          <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;">Submit</button>
+         
+          <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">Close</button>
+         </form>
+           </div>
+        </div>
+  </ng-template>

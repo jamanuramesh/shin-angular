@@ -1,0 +1,8 @@
+#maintable td, #maintable th {
+    border: 1px solid #ddd;
+    padding: 13px;
+  }
+  
+  #maintable th {background-color: white;}
+  #maintable tr:nth-child(odd){background-color: #c3dcf5;}
+  

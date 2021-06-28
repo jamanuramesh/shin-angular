@@ -1,0 +1,52 @@
+body {
+  background-image: radial-gradient(circle, #e0f7fa, #e0f2f1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-height {
+  height: 0px;
+}
+
+#side-bar.material-icons {
+  padding-top: 2px;
+}
+
+span.badge.new {
+  font-style: normal;
+}
+span.badge.new:after {
+  content: '';
+}
+
+nav li .material-icons {
+  padding-top: 3px;
+}
+
+input[type=text]:disabled + label {
+  color: #9E9E9E;
+}
+
+input[type=search] {
+  margin-bottom: 0;
+}
+
+label, .input-field label.active, .input-field label, span.badge.new {
+  font-size: 0.95rem;
+}
+
+#new_tag .no-margin-top label {
+  margin-left: 120px;
+}

@@ -1,0 +1,40 @@
+#main
+{
+    
+   
+   
+    background-color: #f7f7fc;
+   
+    font-size: 18px;
+    outline: none;
+    margin-top:50px;
+}
+
+.hdr select {
+    background-color: #ffffff;
+    padding-top: 10px;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    /* margin-left: 300px; */
+    padding-right: 90px;
+    color: white;
+    border: white;
+    font-weight: bold;
+}
+
+
+.columns{
+    width: 100%;
+}
+
+.container-fluid
+{
+    background-color: #d3e5f8;
+}
+
+body
+{
+    background-color: #d3e5f8;
+}

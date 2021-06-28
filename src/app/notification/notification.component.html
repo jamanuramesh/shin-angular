@@ -1,0 +1,122 @@
+<ng-sidebar-container style="position: static;">
+
+  <ng-sidebar [opened] ="opened">
+
+    <img src="/assets/img/close1.jpg" (click)="toggleSidebar()" style="width: 20px;height: 20px;float: left; margin-top: 8px;margin-right: 5px;cursor: pointer;">
+
+    <h3 style="text-align: center; margin-top: 70px;">Notifications</h3><br>
+
+    <ul style="list-style-type:none; text-align: left;">
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+      <li><img src="/assets/img/contacts1.png" style="width: 20px;height: 20px;">&nbsp;1 new candidate added in this job</li><br>
+
+    </ul>
+   
+   
+
+
+  </ng-sidebar>
+   <div ng-sidebar-content>
+   
+     
+    
+    
+   </div>
+</ng-sidebar-container>
+
+<div class="container-fluid">
+  <div class="row" style="background: #0e216c!important; padding: 10px;">
+  <div class="col-md-3"></div>
+  <div class="col-md-4"> <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+    <input type="text" placeholder="Search.." name="search2">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form></div>
+  <div class="col-md-4">
+   <!-- <button (click)= "toggleSidebar()">
+      Close
+    </button> -->
+    </div>
+
+    <div class="action" >
+      <div class="profile" (click)="toggleprofile()">
+        <img src="/assets/img/account.png">
+      </div>
+      <div class="menu" style="margin-right: -1170px;color: white;margin-top: 64px;" *ngIf="opened1">
+        <h3>Ramesh G</h3>
+        <h6 style="text-align: center;">{{this.email}}</h6>
+        <ul style="list-style-type:none;text-align: left;">
+          <li>Product Tour</li>
+          <li>Terms of Use</li>
+          <li>Privacy Policy</li>
+          <button (click)='onlogout()' id="signout"><a href="/" style="color: white;"><li>Sign Out</li></a></button>
+        </ul>
+      </div>
+    
+    </div>
+
+    <div class="logo float-right" (click)="toggleSidebar()">
+      <img src="/assets/img/bell icon.png" alt="">
+    </div>
+
+    
+  </div>
+
+    
+      
+    
+
+<!--modification of profile and notification logo-->
+
+
+
+ 
+</div>
+
+
+<!-- <div style="height: 80vh;">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Responsive Navigation</span>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+       
+        <a href="#" mat-button>Menu Item 1</a>
+        <a href="#" mat-button>Menu Item 2</a>
+        <a href="#" mat-button>Menu Item 3</a>
+        <a href="#" mat-button>Menu Item 4</a>
+        <a href="#" mat-button>Menu Item 5</a>
+        <a href="#" mat-button>Menu Item 6</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a href="#" mat-list-item>Menu Item 1</a>
+        <a href="#" mat-list-item>Menu Item 2</a>
+        <a href="#" mat-list-item>Menu Item 3</a>
+        <a href="#" mat-list-item>Menu Item 4</a>
+        <a href="#" mat-list-item>Menu Item 5</a>
+        <a href="#"mat-list-item>Menu Item 6</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
+  </mat-sidenav-container>
+</div> -->
+
+
+
+

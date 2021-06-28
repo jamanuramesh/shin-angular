@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+/* body{
+    margin-top:20px;
+    background:#fff;
+  } */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+span.blue {
+  background: #548fcc;
+  border-radius: 200%;
+  -moz-border-radius: 200%;
+  -webkit-border-radius: 200%;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 3.6em;
+  margin-right: 15px;
+  text-align: center;
+  width: 3.6em;
+  margin-bottom: 5%;
+  margin-left: 1%;
+}
+h1.profile {
+  color: #548fcc;
+  display: inline-block;
+  margin-left: 1%;
+  font-size: 30px;
+  font-weight: bold;
+}
+.setupscard {
+  padding: 15px;
+  background-color: #548fcc;
+  background-clip: border-box;
+  border: 1px solid #e5e9f2;
+  border-radius: 0.2rem;
+  border-radius: 15px;
+}
+/* .card-header:first-child {
+    border-radius: calc(.2rem - 1px) calc(.2rem - 1px) 0 0;
+  }
+  
+  .card-header {
+    border-bottom-width: 1px;
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    color: inherit;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e9f2;
+  } */
+.dgn {
+  color: rgb(207, 203, 203);
+  font-weight: 450;
+  background-color: #f7f8f8;
+  border: 1px solid #20639b;
+  border-radius: 10px;
+  width: 100%;
+}
+.btsave {
+  width: 50%;
+  border-radius: 8px;
+  height: 1.7rem;
+  background-color: #687ed8;
+  border-color: #687ed8;
+  color: #fff;
+}
+.progress {
+  border: 1px solid #0e216c;
+  border-radius: 8px;
+  height: 2.2em;
+  padding: 4.7px;
+  background-color: #0e216c;
+}
+.addbtn {
+  background-color: white;
+  font-weight: 600;
+  color: #20639b;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background-color: white;
+  color: #0e216c;
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 1px;
+  width: 47%;
+}
+
+.btn-warning {
+  margin-top: -0.2rem;
+  border: 1px solid #0e216c;
+  color: white;
+
+  width: 15%;
+  border-radius: 8px;
+  height: 1.7rem;
+}
+/* .designation{
+  position: relative;
+color:white;
+  font-weight:550;
+  background-color: #20639B;
+  border: 1px solid #20639B;
+  width:42%;
+  
+left: 13px;
+top:-1px;
+border-radius:10px;
+height:1.9rem;
+} */
+input::placeholder {
+  color: #dcdcdc;
+}
+
+.edticn {
+  display: inline-block !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+
+  background: #0e216c;
+}
+.penicn {
+  font-size: 20px;
+  margin-top: 8px;
+  margin-left: 4px;
+}
+.hdr {
+  background: #548fcc;
+  color: #fff;
+  padding: 15px;
+  margin-top: -15px;
+}
+
+.jobcrd {
+  background-color: #d3e5f8;
+  border: 1px solid #d3e5f8;
+  padding: 15px;
+}
+.ipthdr {
+  color: #548fcc;
+  font-weight: 600;
+}
+.jbtn {
+  background-color: #548fcc;
+  color: #fff;
+  border: 1px solid #548fcc;
+  width: 47%;
+}
+.plscrcle {
+  background: #548fcc;
+  padding: 26px;
+  border-radius: 62px;
+  color: #fff;
+  font-weight: 700;
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  font-size: 23px;
+}

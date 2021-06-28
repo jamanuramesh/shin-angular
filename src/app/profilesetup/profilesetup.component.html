@@ -1,0 +1,161 @@
+
+<app-sidebar3></app-sidebar3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /> 
+</head>
+<body>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="logo float-left">
+          <a href="/" ><img src="/assets/img/smarthireinlogo.png" alt="" style="width: 80%;"></a>
+        </div>
+      </div>
+    </div>
+ </div>
+ 
+
+<div style="text-align: center;">
+    <span class="blue">1</span>
+    <h1 class="profile">Profile Setup</h1>    
+</div>
+ 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+  
+   <form [formGroup]="profileForm"  (ngSubmit)="onsave()">
+            <div class="card setupscard" style="text-align: center;">
+              <div class="card-body">
+            <div class="row">
+              <div class="col-md-9">
+                
+                <div class="row">
+                <div class="col-md-2">
+                <label for="Name" style="color:white;">Name</label>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control dgn" formControlName="firstname" placeholder="First Name" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"  [(ngModel)]="firstName" required>
+                      <!-- <input type="text" formControlName="firstname" class="form-control dgn" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" placeholder="Email ID"  required > -->
+                    <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstname.errors.required">First name is required</div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-1"></div>
+                <div class="col-md-4">
+                      <div class="form-group">
+                      <input type="text"class="form-control dgn" formControlName="lastname" style="margin-left: -50px;" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"[(ngModel)]="lastName"  required>
+                        <!-- <input type="text" formControlName="firstname" class="form-control dgn" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" placeholder="Email ID"  required > -->
+                        <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastname.errors.required">Last name is required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                <label for="Name" style="color:white; margin-left: 15px;">Email Id</label>
+              </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                  <input type="text" class="form-control dgn" formControlName="email" placeholder="Email Id" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  [(ngModel)]="email" required>
+                      <!-- <input type="text" formControlName="firstname" class="form-control dgn" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" placeholder="Email ID"  required > -->
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email Id is required</div>
+                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                  </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">
+              <label for="Name" style="color:white;">Phone</label>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <input type="text" class="form-control dgn" formControlName="mobile" placeholder="Phone No" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" [(ngModel)]="phone" required>
+                    <!-- <input type="text" formControlName="firstname" class="form-control dgn" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" placeholder="Email ID"  required > -->
+                <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                <div *ngIf="f.mobile.errors.required">Phone Number is required</div>
+                </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- <div class="col-md-3">
+          <div class="text-center">
+              <img  [src]=""  class="rounded-circle img-responsive mt-2" width="128" height="128">
+              <br>
+              <span class="edticn">
+                <i class="fa fa-pencil-square-o penicn" aria-hidden="true"></i>
+              </span>
+              <div class="mt-2">
+                  <input type="file" id="choose" (change) = "selectFiles($event)">
+              </div>
+
+          </div>
+
+        
+        </div> -->
+
+        
+        <div class="col-md-4">
+          <button type="submit" class="btsave" style="width: 105px; height: 40px; margin-left: 390px;">Save</button>
+        </div>
+
+
+        </div>
+        </div>
+
+        </div>
+
+
+
+        <br><br> <br>
+                  
+</form>       
+
+</div>
+</div>
+</div>
+
+
+<!--Modified-->
+
+
+
+               
+
+<br><br> <br>
+<div class="row" id="status">
+  <div class="col-md-4">
+   
+  </div>
+
+  <div class="col-md-3">
+    <span class="progress" style="margin-left: 10px; width: 100%;" type="button">    
+      <label class="pro" style="color: white">15%</label>
+       <progress style="width: 105%" value="15" max="100">15%</progress>
+    </span>
+  </div>
+    <div class="col-md-3">
+   <a href="/org"> <button type="submit" class="btsave" style="margin-top: -350px;">Next Step</button></a>
+    </div>
+ 
+  
+</div>   
+     

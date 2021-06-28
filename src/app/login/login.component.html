@@ -1,0 +1,89 @@
+<!-- <app-navbar></app-navbar> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+</head>
+
+<body class="body">
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="logo float-left">
+          <a href="/"><img src="/assets/img/smarthireinlogo.png" alt="" style="width: 80%;"></a>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <img src="/assets/img/signvector.png" style="width: 90%;">
+        <br> <br>
+        <h2 style="color: #548fcc">Welcome to SMARTHirein Web Application</h2>
+        <br>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <h5 style="color: #548fcc">No login?</h5>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class="btn btn-primary sgn">Sign Up</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" style="background: #548fcc; border-radius: 10px; margin-top: -22px; margin-bottom: -68px;">
+        <br> <br> <br>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-8">
+            <img src="/assets/img/maleavtar.png" style="width: 50%;">
+          </div>
+        </div>
+        <div class="hgt"></div>
+        <!-- <br> <br> <br> <br>  -->
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+              <div class="form-group">
+                <!-- <label>Email*</label> -->
+
+                <div *ngIf="submitted && success1" style="margin-left:28px; color: red; font-size: 16px;">
+                  Invalid Email or Password
+                </div><br>
+
+                <input type="text" formControlName="work_mail" class="form-control dgn"
+                  [ngClass]="{ 'is-invalid': submitted && f.work_mail.errors }" placeholder="Email ID" required>
+                <!-- <span class="fa fa-envelope" aria-hidden="true"></span> -->
+                <div *ngIf="submitted && f.work_mail.errors" class="invalid-feedback">
+                  <div *ngIf="f.work_mail.errors.required">Email Id is required</div>
+                  <div *ngIf="f.work_mail.errors.email">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <!-- <label>Password</label> -->
+                <input type="password" formControlName="psw" class="form-control dgn" placeholder="Password"
+                  [ngClass]="{ 'is-invalid': submitted && f.psw.errors }" />
+                <div *ngIf="submitted && f.psw.errors" class="invalid-feedback">
+                  <div *ngIf="f.psw.errors.required">Password is required</div>
+                  <div *ngIf="f.psw.errors.minlength">Password must be at least 8 characters</div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary rdmb">LOG IN</button>
+            </form>
+
+          </div>
+          <br> <br> <br> <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

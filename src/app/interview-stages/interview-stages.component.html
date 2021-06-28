@@ -1,0 +1,171 @@
+
+<app-sidebar></app-sidebar>
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
+
+      <div class="container-fluid">
+        <div class="row" >
+        <div class="col-md-3"></div>
+        <div class="col-md-9" style="background: #548fcc !important; height: 42px;"> 
+          <div class="col-md-1"> </div>
+    
+              <div class="row">
+                <div class="col-md-3"  style="background-color: #fff; height: 42px; text-decoration: none; color: #548fcc !important" >
+                  <h5><a  href="/interview-stages" style="text-decoration: none;">Application Review</a> </h5>
+                </div>
+                <div class="col-md-3">
+                  <h5> <a href="/screening" style="color: #fff; text-decoration: none;"> Screening </a></h5>
+                </div>
+                <div class="col-md-3">
+                  <h5> <a  href="/telephonic" style="color: #fff; text-decoration: none;">Interview</a></h5>
+                </div>
+              </div>   
+            </div>
+       </div>
+       <br> <br>
+     <div class="row" >
+          <div class="col-md-3"></div>
+         <div class="col-md-9"> 
+
+          <form [formGroup]="StageForm"  (ngSubmit)="onAdd()">
+            <div class="row">
+           
+              <!-- <div class="col-md-2"><label for="Name" style="color:white;">Department</label></div> -->
+              <div class="col-md-5">
+                <div class="form-group">
+                  <input type="text" class="form-control dgn" formControlName="deptname" placeholder="+Add a new stage" [ngClass]="{ 'is-invalid': subsecond && d.deptname.errors }" [(ngModel)]="stage_name" required>
+                  <div *ngIf="subsecond && d.deptname.errors" class="invalid-feedback">
+                  <div *ngIf="d.deptname.errors.required">Stage Name is required</div>
+                  </div>
+                 </div>
+              </div>
+              <div class="col-md-3">
+                <button type="submit" class="btsave" style="width: 90px; height: 40px;">Save</button>
+              </div>
+            </div>
+          </form>
+          <br> 
+<!-- 
+<div class="container">
+  <div class="mt-5"> -->
+    <div class="row">
+        <div class="col-md-6">
+          <input type="checkbox" [(ngModel)]="isMasterSel" name="list_name" value="h1" (change)="checkUncheckAll()" style="margin-left: 20px;"> 
+          <span style="font-size: 18px; color: #9b9292;"> &nbsp; Select All</span>
+          <br>
+          <div *ngFor="let item of categoryList">
+          <div class="card">
+            <div class="card-body" style="width: 150%;background: #548fcc;color: #fff;font-size: 15px;">
+              <div class="row" >
+                 <div class="col-md-9">
+                  <input type="checkbox" [checked]="true" [disabled]="true"  name="list_name" value="{{item.id}}" />
+                  <span style="font-size: 15px;"> &nbsp; <i class="fa fa-lock"></i> &nbsp; {{item.value}} </span>
+                </div>
+                 <!-- <div class="col-md-4">Job Skills</div> -->
+                 <div class="col-md-3">
+                  <!-- <i class="fa fa-pencil"></i> -->
+                  <!-- <button type="button" class="btn btn-primary" [disabled]="true"  style="width: 40px;"> 
+                    <i class="fa fa-pencil"></i></button>    &nbsp; -->
+                    <!-- <i class="fa fa-trash"></i> -->
+                    <img src="/assets/img/edit icon.png" width="15" height="15" alt="" style="margin-left:10px">
+                    <img src="/assets/img/delete icon.png" width="15" height="15" alt=""  style="margin-left:10px">
+                    <img src="/assets/img/grid box icon.png" width="15" height="15" alt=""  style="margin-left:10px">
+                     <!-- <button type="button" class="btn btn-primary" [disabled]="true"  style="width: 40px;">
+                        <i class="fa fa-trash"></i></button> -->
+                 </div>
+              </div>
+            </div>
+          </div>
+          <!-- <br> -->
+          </div>
+          <div *ngFor="let item of userData2">
+
+            <div class="card" style=" width: 150%; color: #fff;">
+              
+              <div class="card-body" style="background: #548fcc;color: #fff;font-size: 15px;">
+                <div class="row" >
+                   <div class="col-md-9">
+                    <input type="checkbox" [(ngModel)]="item.HiringStage_Status" name="list_name" value="{{item.HiringStages_Id}}" (change)="isAllSelected()"/>
+                    <span style="font-size: 15px;"> &nbsp;  &nbsp; {{item.HiringStage_Name}} </span>
+                  </div>
+                   <!-- <div class="col-md-4">Job Skills</div> -->
+                   <div class="col-md-3">
+                    <img src="/assets/img/edit icon.png" (click)="editLocation(editLoc, item.HiringStages_Id, item.HiringStage_Name, item.HiringStage_Status)" width="15" height="15" alt="" style="margin-left:10px">
+                    <img src="/assets/img/delete icon.png" (click)="deleteStage(deleteApproveStagemodal,item.HiringStages_Id)" width="15" height="15" alt=""  style="margin-left:10px">
+                    <img src="/assets/img/grid box icon.png" width="15" height="15" alt=""  style="margin-left:10px">
+                    <!-- <button type="button" class="btn btn-primary" (click)="editLocation(editLoc, item.HiringStages_Id, item.HiringStage_Name, item.HiringStage_Status)" style="width: 40px;"> 
+                      <i class="fa fa-pencil"></i></button>    &nbsp;
+          
+                       <button type="button" class="btn btn-primary" (click)="deleteStage(deleteApproveStagemodal,item.HiringStages_Id)" style="width: 40px;">
+                          <i class="fa fa-trash"></i></button> -->
+                   </div>
+                </div>
+              </div>
+            </div>
+            <!-- <br> -->
+            </div>
+        </div>
+        <!-- <div class="col-md-6">
+            <code>{{checkedCategoryList}}</code>
+        </div> -->
+    </div>
+</div>
+ </div>
+ </div>
+
+ <ng-template #editLoc>
+
+  <div class="modal-content">
+    <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+      <h4 class="modal-title" id="modal-basic-title">Edit Hiring Stage</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     <div class="modal-body" style="background:#fff; font-weight: 600; font-size: 16px;" >
+        <form [formGroup]="Locform"  (ngSubmit)="onEditLocation()">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="Name">Hiring Stage Name</label>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+               <input type="text" class="form-control dgn" formControlName="loc_name" placeholder="" [ngClass]="{ 'is-invalid': subf && f.loc_name.errors }" [(ngModel)]="hir_name" required>
+               <div *ngIf="subf && f.loc_name.errors" class="invalid-feedback">
+                 <div *ngIf="f.loc_name.errors.required">Satge  Name is required</div>
+                </div>
+              </div>
+            </div>
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;">Submit</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</ng-template>
+
+
+<ng-template #deleteApproveStagemodal>
+  <div class="modal-content">
+      <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+      <h4 class="modal-title" id="modal-basic-title">Delete Approve Stage</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+     </div>
+     <div class="modal-body" style="background:#fff;font-weight: 600; font-size: 16px;" >
+        <div class="row">
+        <div class="col-md-6">
+         <label for="Name" >Are you sure you want to delete?</label>
+        </div> <br> <br>
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;" (click)="onDeleteApproveStage()">Yes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">No</button>
+       </div>
+         </div>
+      </div>
+</ng-template>
+

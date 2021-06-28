@@ -1,0 +1,24 @@
+.hgt{
+    height: 60px;
+}
+.dgn{
+    border-radius: 30px;
+    height: calc(1.5em + .75rem + 10px) !important;
+}
+.rdmb{
+    background-color: #0e216c !important;
+    color: #fff !important;
+    border-color: #0e216c;
+    border-radius: 21px;
+    width: 100%;
+}
+.sgn{
+    background-color: #548fcc !important;
+    color: #fff !important;
+    border-color: #548fcc;
+    border-radius: 21px;
+    width: 100%;
+}
+input::placeholder {
+    color:#dcdcdc;
+  }

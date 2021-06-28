@@ -1,0 +1,9 @@
+
+::ng-deep .span.switch.switch-medium.checked {
+    background-color: rgb(100, 189, 99) !important;
+    border-color : rgb(100, 189, 99) !important;
+}
+::ng-deep  span.switch.switch-medium {
+    background-color: rgb(226 125 125) !important;
+    border-color: rgb(226 125 125) !important;
+}

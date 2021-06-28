@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <title></title>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /> 
+
+<!-- </head> -->
+
+  <style type="text/css">
+
+ 
+
+input::placeholder {
+
+  color:#dcdcdc;
+
+}
+
+ 
+
+.search{
+
+  position: relative;
+
+color:white;
+
+  font-weight:550;
+
+  background-color: #20639B;
+
+  border: 1px solid #20639B;
+
+  width:30%;
+
+left:72px;
+
+border-radius:10px;
+
+height:1.9rem;
+
+margin-top:-1px;
+
+ 
+
+}
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+  <app-sidebar3></app-sidebar3>
+
+ 
+
+  <!-- Header -->
+
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-md-2">
+
+        <div class="logo float-left">
+
+          <a href="/" ><img src="/assets/img/smarthireinlogo.png" alt="" style="width: 80%;"></a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+ </div>
+
+ 
+
+<div style="text-align: center;">
+
+    <span class="blue">3</span>
+
+    <h1 class="profile">Team Setup</h1>    
+
+</div>
+
+ <!-- /Header -->
+
+ 
+
+ <div class="container-fluid" style="margin-left: 130px;">
+
+  <div class="row">
+
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10">
+
+     
+
+  <div class="card setupscard" style="text-align: center;">
+
+      <div class="card-body">
+
+    <div class="row" style="color:#fff;">
+
+      <h5>Users</h5>
+
+      <div class="col-md-12"></div>
+
+      <p style="font-weight: 300;">Add users to the board and give them required access</p>
+
+    </div>
+
+      <br>
+
+      <div class="row">
+
+     
+
+      <form [formGroup]="userForm"  (ngSubmit)="onSubmit()">
+
+        <div class="row" style="text-align: left;">
+
+         <div class="col-md-2">
+
+         <label for="Name" style="color:white;">Name</label>
+
+        </div>
+
+ 
+
+        <div class="col-md-4">
+
+           <div class="form-group">
+
+            <input type="text" class="form-control dgn" formControlName="firstname" placeholder="User Name" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" [(ngModel)]="user_name" required>
+
+            <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+
+            <div *ngIf="f.firstname.errors.required">First name is required</div>
+
+            </div>
+
+           </div>
+
+       </div>
+
+    
+
+       <div class="col-md-2">
+
+        <label for="Name" style="color:white;">Department</label>
+
+       </div>
+
+        <div class="col-md-4">
+
+          <div class="form-group">
+
+ 
+
+            <select name="function" class="form-control dgn" formControlName="dename" [ngClass]="{ 'is-invalid': submitted && f.dename.errors }" [(ngModel)]="deprt_id" required>
+
+              <option  *ngFor="let i of deptList"   value="{{i.Dept_Id}}">{{i.Dept_Name}}</option>
+
+            
+
+            </select>
+
+            
+
+            <div *ngIf="submitted && f.dename.errors" class="invalid-feedback">
+
+                <div *ngIf="f.dename.errors.required">Department is required</div>
+
+            </div>
+
+            
+
+      </div>
+
+    </div> 
+
+ 
+
+    <div class="col-md-2">
+
+      <label for="Name" style="color:white;">Gender</label>
+
+     </div>
+
+ 
+
+    <div class="col-md-4">
+
+      <div class="form-group">
+
+        <select name="function"  class="form-control dgn" formControlName="gndr" [ngClass]="{ 'is-invalid': submitted && f.gndr.errors }" [(ngModel)]="user_gender" required>
+
+          
+
+          <option  value="Female">Male</option>
+
+          <option  value="Male">Female</option>
+
+        </select>
+
+        
+
+        <div *ngIf="submitted && f.gndr.errors" class="invalid-feedback">
+
+            <div *ngIf="f.gndr.errors.required">Gender is required</div>
+
+        </div>
+
+      </div>
+
+  </div>
+
+
+
+
+
+
+
+
+ <div class="col-md-2">
+
+    <label for="Name" style="color:white;">Admin Access</label>
+
+   </div>
+
+ 
+
+  <div class="col-md-4">
+
+    <div class="form-group">
+
+      <select name="function" class="form-control dgn" formControlName="admacs" [ngClass]="{ 'is-invalid': submitted && f.admacs.errors }" [(ngModel)]="user_admin_access" required>
+
+        <option value="1">Yes</option>
+
+        <option value="0" >No</option>
+
+      </select>
+
+      
+
+      <div *ngIf="submitted && f.admacs.errors" class="invalid-feedback">
+
+          <div *ngIf="f.admacs.errors.required">Admin Access is required</div>
+
+      </div>
+
+    </div>
+
+</div> 
+
+ 
+
+<!--
+
+<div class="col-md-2">
+
+  <label for="Name" style="color:white;">Admin Access</label>
+
+ </div>
+
+ 
+
+ <div class="col-md-4">
+
+  <div class="form-group"> 
+
+        <select name="function" class="form-control dgn"  formControlName="admacs" [ngClass]="{ 'is-invalid': submitted && f.admacs.errors }" [(ngModel)]="user_admin_access"   required>
+
+          <option>Yes</option>
+
+          <option>No</option>
+
+          
+
+        </select>
+
+ 
+
+        <div *ngIf="submitted && f.admacs.errors" class="invalid-feedback">
+
+          <div *ngIf="f.admacs.errors.required">Admin Access is required</div>
+
+  </div>
+
+  </div>
+
+</div> -->
+
+ 
+
+<!--Modification start-->
+
+ 
+
+<div class="col-md-2">
+
+  <label for="Name" style="color:white;">Role</label>
+
+ </div>
+
+<br> <br> <br> <br> 
+
+<div class="col-md-4">
+
+    <div class="form-group">
+
+ 
+
+      <select name="function" class="form-control dgn"  formControlName="role" [ngClass]="{ 'is-invalid': submitted && f.role.errors }" [(ngModel)]="role" required>
+
+        <option value="0"></option>
+
+        <option style="font-weight: bold">Admin</option>
+
+        <option>Recruiter</option>
+
+        <option>Hiring Manager</option>
+
+        <option>Onboarding Team Member</option>
+
+        <option>Member</option>
+
+        <option>Organization Head</option>
+
+      </select>
+
+      
+
+      <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+
+     <div *ngIf="f.role.errors.required">Role is required</div>
+
+     </div>
+
+    </div>
+
+</div>
+
+ 
+
+<!--Modification end-->   
+
+ 
+
+      
+
+       </div>
+
+ 
+
+       
+
+       <div class="col-md-12">
+
+        <button type="submit" class="addbtn" style="color:white; background-color: #0E216C; border: none; width: 105px; height: 40px; margin-right: 125px;" >ADD</button>
+
+       </div>
+
+ 
+
+       
+
+       
+
+ 
+
+     </form>
+
+     </div>
+
+ 
+
+ <br> <br>
+
+     <div class="row" style="overflow-x:auto;">
+
+      <table class="table" style="color:#fff" alignment="left">
+
+        <thead>
+
+          <tr>
+
+            <!-- <th scope="col"></th> -->
+
+            <th scope="col">Avtar</th>
+
+            <th scope="col">Name</th>
+
+            <th scope="col">Department</th>
+
+            <th scope="col">Admin Access</th>
+
+            <th scope="col">Actions</th>
+
+          </tr>
+
+        </thead>
+
+      
+
+        <tbody>
+
+         
+
+        
+
+ 
+
+    
+
+         <tr *ngFor="let i of usList"    > 
+
+          <ng-template [ngIf]="i.User_Gender=='Male'" [ngIfElse]="elseBlock">            
+            <img src="/assets/img/maleavtar.png"alt="Italian Trulli" height="50px"/>    <!-- Picture of commented person -->
+         
+          </ng-template>
+          <ng-template #elseBlock>
+            <img src="/assets/img/femaleavtar.png" alt="Italian Trulli" height="50px"/>    <!-- Picture of commented person -->
+          </ng-template>
+
+           <td>{{i.User_Name}}</td>
+
+            <td>{{i.Dept_Name}}</td>
+
+ 
+
+           <!-- <td> {{i.User_Admin_Access}}</td> -->
+
+ 
+
+           <td *ngIf="i.User_Admin_Access==1">Yes </td> 
+
+           <td *ngIf="i.User_Admin_Access==0">No </td> 
+
+ 
+
+            <td><button type="button" class="btn btn-primary" style="width: 90px;"
+
+              (click)="edit_user(edi_user_tmodal,i.user_dtls_Id, i.User_Name,  i.Dept_Id, i.User_Gender,i.User_Admin_Access,i.User_role)">Edit <i class="fa fa-pencil"></i></button>
+
+              &nbsp;
+
+    
+
+    
+
+              <button type="button" class="btn btn-primary" style="width: 90px;"
+
+                (click)="deleteuser(deleteusermodal,i.user_dtls_Id)">Delete <i class="fa fa-trash"></i></button>
+
+              </td>
+
+ 
+
+    </tr>
+
+
+
+
+         
+
+        </tbody> 
+
+      </table>
+
+    </div>
+
+ </div>
+
+ 
+
+</div>
+
+<br><br> <br>
+
+ 
+
+<div class="card setupscard" style="text-align: center;">
+
+  <div class="card-body">
+
+    <div class="row" style="color:#fff;">
+
+      <h5>Teams</h5>
+
+      <div class="col-md-12"></div>
+
+      <p style="font-weight: 300;">Create teams and add users for a structured hiring process</p>
+
+    </div>
+
+      <br>
+
+      <div class="row">
+
+    <form [formGroup]="teamForm"  (ngSubmit)="onAdd()" style="text-align: left;">
+
+    <div class="row">
+
+     <div class="col-md-2">
+
+     <label for="Name" style="color:white;"> Team Name</label>
+
+    </div>
+
+ 
+
+    <div class="col-md-4">
+
+       <div class="form-group">
+
+        <input type="text" class="form-control dgn" formControlName="teamname" placeholder="Team Name" [ngClass]="{ 'is-invalid': subsecond && d.teamname.errors }"  [(ngModel)]="team_name" required>
+
+        <div *ngIf="subsecond && d.teamname.errors" class="invalid-feedback">
+
+        <div *ngIf="d.teamname.errors.required">Team name is required</div>
+
+        </div>
+
+       </div>
+
+   </div>
+
+ 
+
+   <div class="col-md-2">
+
+    <label for="Name" style="color:white;"> Team Head</label>
+
+   </div>
+
+ 
+
+   <div class="col-md-4">
+
+      <div class="form-group">
+
+       <input type="text" class="form-control dgn" formControlName="teamhead" placeholder="Team Head" [ngClass]="{ 'is-invalid': subsecond && d.teamhead.errors }" [(ngModel)]="team_head" required>
+
+       <div *ngIf="subsecond && d.teamhead.errors" class="invalid-feedback">
+
+       <div *ngIf="d.teamhead.errors.required">Team Head is required</div>
+
+       </div>
+
+      </div>
+
+  </div>
+
+  <div class="col-md-2">
+
+    <label for="Name" style="color:white;"> No.Of Members</label>
+
+   </div>
+
+ 
+
+   <div class="col-md-4">
+
+      <div class="form-group">
+
+       <input type="text" class="form-control dgn" formControlName="teammbrs" placeholder="No. Of Members" [ngClass]="{ 'is-invalid': subsecond && d.teammbrs.errors }" [(ngModel)]="team_members" required>
+
+       <div *ngIf="subsecond && d.teammbrs.errors" class="invalid-feedback">
+
+       <div *ngIf="d.teammbrs.errors.required">No.Of Members is required</div>
+
+       </div>
+
+      </div>
+
+  </div>
+
+ 
+
+  <!--modification starts-->
+
+  <div class="col-md-2">
+
+    <label for="Name" style="color:white;"> Name of Members</label>
+
+   </div>
+
+ 
+
+   <div class="col-md-4">
+
+      <div class="form-group">
+<!-- Changes -->
+    
+
+     <ng-multiselect-dropdown  name="function" class="form-control dgn"   formControlName="memname"   [ngClass]="{ 'is-invalid': subsecond && d.memname.errors }"  required style="color:white; outline: none;"  required
+        [settings]="dropdownSettings"
+        [data]="usList" >
+        </ng-multiselect-dropdown>
+
+       <div *ngIf="subsecond && d.memname.errors" class="invalid-feedback">
+
+       <div *ngIf="d.memname.errors.required">Name of member is required</div>
+
+ 
+
+   
+
+       </div>
+
+ 
+
+      </div>
+
+      
+
+    </div>
+
+    
+
+  </div>
+
+  <!--modification ends-->
+
+ 
+
+   <br><br><br>
+
+     
+
+   <div class="col-md-10">
+
+     <button type="submit" class="addbtn" style="color:white; background-color: #0E216C; border: none; width: 105px; height: 40px; margin-left: 500px; " >ADD</button>
+
+   </div>
+
+ 
+
+   <br><br>
+
+  
+
+ </form>
+
+ </div>
+
+      
+
+<div class="row" style="overflow-x:auto;">
+
+  <table class="table" style="color:#fff;">
+
+    <thead>
+
+      <tr>
+
+        <!-- <th scope="col"></th> -->
+
+        <th scope="col">Team Name</th>
+
+        <th scope="col">Head</th>
+
+        <th scope="col">No.of members</th>
+
+        <th scope="col">Last Modified</th>
+
+        <th scope="col">Actions</th>
+
+      </tr>
+
+    </thead>
+
+  
+
+    <tbody>
+
+ 
+
+      <!-- <tr >
+
+        <td>Pago</td>
+
+        <td>Tejswini</td>
+
+        <td>Sneha</td>
+
+        <td>29/12/2020</td>
+
+        <td><button type="button" class="btn btn-primary" 
+
+          (click)="editTeam(editTeammodal)">Edit <i class="fa fa-pencil"></i></button>    &nbsp;
+
+ 
+
+          <button type="button" class="btn btn-primary" 
+
+            (click)="deleteTeam(deleteTeammodal)">Delete <i class="fa fa-trash"></i></button></td>
+
+ 
+
+        
+
+      </tr> -->
+
+ 
+
+      
+
+      <tr *ngFor="let i of tmList">
+
+        <td>{{i.Team_Name}}</td>
+
+        <td>{{i.Team_Head}}</td>
+
+        <td>{{i.Team_Memebers}}</td>
+
+        <td>{{i.Team_Crtdt | date: 'dd/MM/yyyy'}}</td>
+
+        <td><button type="button" class="btn btn-primary" style="width: 90px;"
+
+          (click)="editTeam(editTeammodal, i.Team_Id, i.Team_Name, i.Team_Head, i.Team_Memebers,i.team_users_id )">Edit <i class="fa fa-pencil"></i></button>
+
+          &nbsp;
+
+ 
+
+          <button type="button" class="btn btn-primary" style="width: 90px;"
+
+            (click)="deleteTeam(deleteTeammodal,i.Team_Id)">Delete <i class="fa fa-trash"></i></button>
+
+          </td>
+
+ 
+
+        
+
+      </tr>
+
+ 
+
+    </tbody>
+
+  </table>
+
+</div>
+
+ 
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<br> <br> <br> 
+
+ 
+
+      <div class="row">
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-3">
+
+          <a href="/location"> <button type="button" class="btsave" style="width: 105px; height: 35px; margin-left: 250px;">Back</button></a>
+
+         </div>
+
+         <div class="col-md-1"></div>
+
+         <div class="col-md-3">
+
+                <span class="progress" type="button" style="margin-left: -70px;">    
+
+                  <label class="pro" style="color: white">100%</label><br>
+
+                  <progress style="width: 105%" value="100" max="100">75%</progress>
+
+                </span>
+
+              </div>
+
+                <div class="col-md-2">
+
+                <a href="/congrats"><button type="" class="btsave" style="width: 105px; height: 35px;">Next Step</button></a>
+
+                </div>
+
+          </div>   
+
+</div>
+
+ 
+
+ <!-- Modal -->
+
+ <!-- <ng-template #editmodal>
+
+  <div class="modal-content">
+
+ 
+
+    
+
+      <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+
+        <h4 class="modal-title" id="modal-basic-title">Edit User</h4>
+
+     <h2>Edit Department</h2> 
+
+      <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+
+        <span aria-hidden="true">&times;</span>
+
+      </button>
+
+     </div>
+
+     <div class="modal-body" style="
+
+     background:#fff;
+
+     font-weight: 600;
+
+     font-size: 16px;" >
+
+      <form [formGroup]="editForm"  (ngSubmit)="onEditUser()">
+
+        <div class="row">
+
+        <div class="col-md-6">
+
+          <label for="Name" >User Name</label>
+
+         </div>
+
+ 
+
+         <div class="col-md-6">
+
+            <div class="form-group">
+
+             <input type="text" class="form-control dgn" formControlName="uname" placeholder="User Name" [ngClass]="{ 'is-invalid': subthird && g.uname.errors }" [(ngModel)]="usName" required>
+
+             <div *ngIf="subthird && g.uname.errors" class="invalid-feedback">
+
+             <div *ngIf="g.uname.errors.required">First name is required</div>
+
+             </div>
+
+            </div>
+
+        </div>
+
+     
+
+        <div class="col-md-6">
+
+         <label for="Name" >Department</label>
+
+        </div>
+
+         <div class="col-md-6">
+
+           <div class="form-group">
+
+ 
+
+             <select name="function" class="form-control dgn" formControlName="dpname" [ngClass]="{ 'is-invalid': subthird && g.dpname.errors }" [(ngModel)]="dptName" required>
+
+               <option  *ngFor="let i of deptList"   value="{{i.Dept_Id}}">{{i.Dept_Name}}</option>
+
+             </select>
+
+             
+
+             <div *ngIf="subthird && g.dpname.errors" class="invalid-feedback">
+
+                 <div *ngIf="g.dpname.errors.required">Department is required</div>
+
+             </div>
+
+             
+
+       </div>
+
+     </div> 
+
+ 
+
+     <div class="col-md-6">
+
+       <label for="Name" >Gender</label>
+
+      </div>
+
+ 
+
+     <div class="col-md-6">
+
+       <div class="form-group">
+
+         <select name="function" class="form-control dgn" formControlName="gnr" [ngClass]="{ 'is-invalid': subthird && g.gnr.errors }" [(ngModel)]="gndr" required>
+
+           <option  value="Male">Male</option>
+
+           <option  value="Female">Female</option>
+
+         </select>
+
+         
+
+         <div *ngIf="subthird && g.gnr.errors" class="invalid-feedback">
+
+             <div *ngIf="g.gnr.errors.required">Gender is required</div>
+
+         </div>
+
+       </div>
+
+   </div>
+
+ 
+
+   <div class="col-md-6">
+
+     <label for="Name" >Admin Access</label>
+
+    </div>
+
+ 
+
+   <div class="col-md-6">
+
+     <div class="form-group">
+
+       <select name="function" class="form-control dgn" formControlName="aacs" [ngClass]="{ 'is-invalid': subthird && g.aacs.errors }" [(ngModel)]="admn" required>
+
+         <option  value="0">Yes</option>
+
+         <option  value="1">No</option>
+
+       </select>
+
+       
+
+       <div *ngIf="subthird && g.aacs.errors" class="invalid-feedback">
+
+           <div *ngIf="g.aacs.errors.required">Admin Access is required</div>
+
+       </div>
+
+     </div>
+
+ </div>
+
+  
+
+       
+
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;">Submit</button>
+
+       
+
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">Close</button>
+
+       </div>
+
+      </form>
+
+         </div>
+
+      </div>
+
+</ng-template> -->
+
+ 
+
+ <!-- Edit Team Modal -->
+
+ <ng-template #editTeammodal>
+
+  <div class="modal-content">
+
+ 
+
+    
+
+      <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+
+        <h4 class="modal-title" id="modal-basic-title">Edit Team</h4>
+
+      <!-- <h2>Edit Department</h2> -->
+
+      <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+
+        <span aria-hidden="true">&times;</span>
+
+      </button>
+
+     </div>
+
+     <div class="modal-body" style="
+
+     background:#fff;
+
+     font-weight: 600;
+
+     font-size: 16px;" >
+
+      <form [formGroup]="editTeamForm"  (ngSubmit)="onEditTeam()">
+
+        <div class="row">
+
+        <div class="col-md-6">
+
+          <label for="Name">Team Name</label>
+
+         </div>
+
+ 
+
+         <div class="col-md-6">
+
+            <div class="form-group">
+
+             <input type="text" class="form-control dgn" formControlName="tname" placeholder="Team Name" [ngClass]="{ 'is-invalid': subfour && h.tname.errors }" [(ngModel)]="tm_name" required>
+
+             <div *ngIf="subfour && h.tname.errors" class="invalid-feedback">
+
+             <div *ngIf="h.tname.errors.required">Team Name is required</div>
+
+             </div>
+
+            </div>
+
+        </div>
+
+     
+
+        <div class="col-md-6">
+
+         <label for="Name" >Team Head</label>
+
+        </div>
+
+         <div class="col-md-6">
+
+           <div class="form-group">
+
+ 
+
+            <input type="text" class="form-control dgn" formControlName="thname" placeholder="Team Head" [ngClass]="{ 'is-invalid': subfour && h.thname.errors }" [(ngModel)]="tm_head" required>
+
+             
+
+             <div *ngIf="subfour && h.thname.errors" class="invalid-feedback">
+
+                 <div *ngIf="h.thname.errors.required">Team Head is required</div>
+
+             </div>
+
+             
+
+       </div>
+
+     </div> 
+
+ 
+
+     <div class="col-md-6">
+
+       <label for="Name" >No. Of Members</label>
+
+      </div>
+
+ 
+
+     <div class="col-md-6">
+
+       <div class="form-group">
+
+ 
+
+        <input type="text" class="form-control dgn" formControlName="nom" placeholder="No. Of Members" [ngClass]="{ 'is-invalid': subfour && h.nom.errors }" [(ngModel)]="tm_no" required>
+
+         
+
+         <div *ngIf="subfour && h.nom.errors" class="invalid-feedback">
+
+             <div *ngIf="h.nom.errors.required">No. Of Members is required</div>
+
+         </div>
+
+       </div>
+
+   </div>
+
+ 
+
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;">Submit</button>
+
+       
+
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">Close</button>
+
+       </div>
+
+      </form>
+
+         </div>
+
+      </div>
+
+</ng-template>
+
+ 
+
+ <!-- delete Team Modal -->
+
+ 
+
+ <ng-template #deleteTeammodal>
+
+  <div class="modal-content">
+
+ 
+
+    
+
+      <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+
+        <h4 class="modal-title" id="modal-basic-title">Delete Team</h4>
+
+      <!-- <h2>Edit Department</h2> -->
+
+      <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+
+        <span aria-hidden="true">&times;</span>
+
+      </button>
+
+     </div>
+
+     <div class="modal-body" style="
+
+     background:#fff;
+
+     font-weight: 600;
+
+     font-size: 16px;" >
+
+      <form [formGroup]="deleteTeamForm">
+
+        <div class="row">
+
+        
+
+        <div class="col-md-6">
+
+         <label for="Name" >Are you sure you want to delete?</label>
+
+        </div> <br> <br>
+
+         
+
+ 
+
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef; " (click)="onDeleteTeam()">Yes</button>
+
+       
+
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">No</button>
+
+       </div>
+
+      </form>
+
+         </div>
+
+      </div>
+
+</ng-template>
+
+
+
+
+
+
+
+<!--new modal-->
+
+
+
+
+ <!-- Modal -->
+
+ <ng-template #edi_user_tmodal>
+
+  <div class="modal-content">
+
+ 
+
+    
+
+      <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+
+        <h4 class="modal-title" id="modal-basic-title">Edit User</h4>
+
+      <!-- <h2>Edit Department</h2> -->
+
+      <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+
+        <span aria-hidden="true">&times;</span>
+
+      </button>
+
+     </div>
+
+     <div class="modal-body" style="
+
+     background:#fff;
+
+     font-weight: 600;
+
+     font-size: 16px;" >
+       <form [formGroup]="editForm"  (ngSubmit)="onEditUser()">
+
+    
+
+        <div class="row">
+
+        <div class="col-md-6">
+
+          <label for="Name" >User Name</label>
+
+         </div>
+
+ 
+
+         <div class="col-md-6">
+
+            <div class="form-group">
+
+             <input type="text" class="form-control dgn" formControlName="uname" placeholder="User Name" [ngClass]="{ 'is-invalid': subthird && g.uname.errors }" [(ngModel)]="usName" required>
+
+             <div *ngIf="subthird && g.uname.errors" class="invalid-feedback">
+
+             <div *ngIf="g.uname.errors.required">First name is required</div>
+
+             </div>
+
+            </div>
+
+        </div>
+
+     
+
+        <div class="col-md-6">
+
+         <label for="Name" >Department</label>
+
+        </div>
+
+         <div class="col-md-6">
+
+           <div class="form-group">
+
+ 
+
+             <select name="function" class="form-control dgn" formControlName="dpname" [ngClass]="{ 'is-invalid': subthird && g.dpname.errors }" [(ngModel)]="dptName" required>
+
+               <option  *ngFor="let i of deptList"   value="{{i.Dept_Id}}">{{i.Dept_Name}}</option>
+
+             </select>
+
+             
+
+             <div *ngIf="subthird && g.dpname.errors" class="invalid-feedback">
+
+                 <div *ngIf="g.dpname.errors.required">Department is required</div>
+
+             </div>
+
+             
+
+       </div>
+
+     </div> 
+
+ 
+
+     <div class="col-md-6">
+
+       <label for="Name" >Gender </label>
+
+      </div>
+
+ 
+
+     <div class="col-md-6">
+
+       <div class="form-group">
+
+         <select name="function" class="form-control dgn" formControlName="gnr" [ngClass]="{ 'is-invalid': subthird && g.gnr.errors }" [(ngModel)]="gndr" required>
+
+           <option  value="Male">Male</option>
+
+           <option  value="Female">Female</option>
+
+         </select>
+
+         
+
+         <div *ngIf="subthird && g.gnr.errors" class="invalid-feedback">
+
+             <div *ngIf="g.gnr.errors.required">Gender is required</div>
+
+         </div>
+
+       </div>
+
+   </div>
+
+ 
+
+   <div class="col-md-6">
+
+     <label for="Name" >Admin Access</label>
+
+    </div>
+
+ 
+
+   <div class="col-md-6">
+
+     <div class="form-group">
+
+       <select name="function" class="form-control dgn" formControlName="aacs" [ngClass]="{ 'is-invalid': subthird && g.aacs.errors }" [(ngModel)]="admn" required>
+
+         <option  value="0">Yes</option>
+
+         <option  value="1">No</option>
+
+       </select>
+
+       
+
+       <div *ngIf="subthird && g.aacs.errors" class="invalid-feedback">
+
+           <div *ngIf="g.aacs.errors.required">Admin Access is required</div>
+
+       </div>
+
+     </div>
+
+ </div>
+
+
+  
+
+ <div class="col-md-6">
+
+  <label for="Name" >Role </label>
+
+ </div>
+
+
+
+<div class="col-md-6">
+
+  <div class="form-group">
+
+    <select name="function" class="form-control dgn" formControlName="role" [ngClass]="{ 'is-invalid': subthird && g.role.errors }" [(ngModel)]="role" required>
+
+      <option  value="Recruiter">Recruiter</option>
+
+      <option  value="Hiring Manager">Hiring Manager</option>
+      <option  value="Onboarding Team Member">Onboarding Team Member</option>
+
+      <option  value="Member">Member</option>
+      <option  value="Organization Head">Organization Head</option>
+
+     
+    </select>
+
+    
+
+    <div *ngIf="subthird && g.role.errors" class="invalid-feedback">
+
+        <div *ngIf="g.role.errors.required">Role is required</div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+ 
+ 
+
+  
+
+       
+
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;">Submit</button>
+
+       
+
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">Close</button>
+
+       </div>
+
+      </form>
+
+         </div>
+
+      </div>
+
+</ng-template>
+
+ 
+
+ <!-- Edit Team Modal -->
+
+ <!-- <ng-template #editusermodal>
+
+  <div class="modal-content">
+
+ 
+
+    
+
+      <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+
+        <h4 class="modal-title" id="modal-basic-title">Edit Team</h4>
+
+  
+
+      <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+
+        <span aria-hidden="true">&times;</span>
+
+      </button>
+
+     </div>
+
+     <div class="modal-body" style="
+
+     background:#fff;
+
+     font-weight: 600;
+
+     font-size: 16px;" >
+
+      <form [formGroup]="edituserForm"  (ngSubmit)="onEdituser()">
+
+        <div class="row">
+
+        <div class="col-md-6">
+
+          <label for="Name">Team Name</label>
+
+         </div>
+
+ 
+
+         <div class="col-md-6">
+
+            <div class="form-group">
+
+             <input type="text" class="form-control dgn" formControlName="tname" placeholder="User Name" [ngClass]="{ 'is-invalid': subfour && h.tname.errors }" [(ngModel)]="tm_name" required>
+
+             <div *ngIf="subfour && h.tname.errors" class="invalid-feedback">
+
+             <div *ngIf="h.tname.errors.required">Team Name is required</div>
+
+             </div>
+
+            </div>
+
+        </div>
+
+     
+
+        <div class="col-md-6">
+
+         <label for="Name" >Department</label>
+
+        </div>
+
+         <div class="col-md-6">
+
+           <div class="form-group">
+
+ 
+
+            <input type="text" class="form-control dgn" formControlName="thname" placeholder="Department" [ngClass]="{ 'is-invalid': subfour && h.thname.errors }" [(ngModel)]="tm_head" required>
+
+             
+
+             <div *ngIf="subfour && h.thname.errors" class="invalid-feedback">
+
+                 <div *ngIf="h.thname.errors.required">Department is required</div>
+
+             </div>
+
+             
+
+       </div>
+
+     </div> 
+
+ 
+
+     <div class="col-md-6">
+
+       <label for="Name" >Gender</label>
+
+      </div>
+
+ 
+
+     <div class="col-md-6">
+
+       <div class="form-group">
+
+ 
+
+        <input type="text" class="form-control dgn" formControlName="nom" placeholder="Gender" [ngClass]="{ 'is-invalid': subfour && h.nom.errors }" [(ngModel)]="tm_no" required>
+
+         
+
+         <div *ngIf="subfour && h.nom.errors" class="invalid-feedback">
+
+             <div *ngIf="h.nom.errors.required">Gender is required</div>
+
+         </div>
+
+       </div>
+
+   </div>
+
+
+
+
+
+   <div class="col-md-6">
+
+    <label for="Name" >Admin Access</label>
+
+   </div>
+
+ 
+
+  <div class="col-md-6">
+
+    <div class="form-group">
+
+ 
+
+     <input type="text" class="form-control dgn" formControlName="nom" placeholder="Admin Access" [ngClass]="{ 'is-invalid': subfour && h.nom.errors }" [(ngModel)]="tm_no" required>
+
+      
+
+      <div *ngIf="subfour && h.nom.errors" class="invalid-feedback">
+
+          <div *ngIf="h.nom.errors.required">Admin Access is required</div>
+
+      </div>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="col-md-6">
+
+  <label for="Name" >Role</label>
+
+ </div>
+
+ 
+
+<div class="col-md-6">
+
+  <div class="form-group">
+
+ 
+
+   <input type="text" class="form-control dgn" formControlName="nom" placeholder="Role" [ngClass]="{ 'is-invalid': subfour && h.nom.errors }" [(ngModel)]="tm_no" required>
+
+    
+
+    <div *ngIf="subfour && h.nom.errors" class="invalid-feedback">
+
+        <div *ngIf="h.nom.errors.required">Role is required</div>
+
+    </div>
+
+  </div>
+
+</div>
+
+ 
+
+ 
+
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;">Submit</button>
+
+       
+
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">Close</button>
+
+       </div>
+
+      </form>
+
+         </div>
+
+      </div>
+
+</ng-template> -->
+
+ 
+
+ <!-- delete Team Modal -->
+
+ 
+
+ <ng-template #deleteusermodal>
+
+  <div class="modal-content">
+
+ 
+
+    
+
+      <div class="modal-header" style="background: #90bfef; color: #fff; top: 120px;">
+
+        <h4 class="modal-title" id="modal-basic-title">Delete User</h4>
+
+      <!-- <h2>Edit Department</h2> -->
+
+      <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+
+        <span aria-hidden="true">&times;</span>
+
+      </button>
+
+     </div>
+
+     <div class="modal-body" style="
+
+     background:#fff;
+
+     font-weight: 600;
+
+     font-size: 16px;" >
+
+      <form [formGroup]="deleteuserForm">
+
+        <div class="row">
+
+        
+
+        <div class="col-md-6">
+
+         <label for="Name" >Are you sure you want to delete?</label>
+
+        </div> <br> <br>
+
+         
+
+ 
+
+        <button type="submit" class="btn btn-primary" style="width: 77px; background: #90bfef;" (click)="onDeleteUser()">Yes</button>
+
+       
+
+        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-left: 19px; width: 77px; background: #90bfef;" (click)="modalRef.hide()">No</button>
+
+       </div>
+
+      </form>
+
+         </div>
+
+      </div>
+
+</ng-template>

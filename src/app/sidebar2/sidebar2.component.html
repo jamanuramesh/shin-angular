@@ -1,0 +1,50 @@
+<ng-sidebar-container style="position: static;">
+
+  <ng-sidebar [opened] ="opened">
+   
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo float-left">
+          <a href="/" ><img src="/assets/img/smarthireinlogo.png" alt="" style="width: 156%;
+            padding: 9px;
+            border-radius: none; 
+            
+            
+            outline: none;
+            overflow: hidden;
+            margin-left: -44px;"></a>
+        </div>
+      </div>
+    </div>
+
+    <ul class="menu" style="list-style: none;">
+      <li><a href="/profilesetup">My Profile</a></li>
+      <li><a href="/password">Password</a></li>
+      <li><a href="/org">Organization</a></li>
+      <li><a href="team">Team Setup</a></li>
+      <li><a href="/hirinstages">HiringStages</a></li>
+      <li><a href="/candidates">Candidates</a></li>
+      <li>
+        <div ngbDropdown class="d-inline-block drpbn">
+          <a  id="dropdownBasic1" ngbDropdownToggle>Reports</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a class="dwns" href="/jb-reports"> <button ngbDropdownItem class="dwnitm" >Job Reports</button></a>
+            <a class="dwns" href="/candreports"> <button ngbDropdownItem class="dwnitm">Candidate Reports</button></a>
+            <a class="dwns" href=""> <button ngbDropdownItem class="dwnitm">Hiring Performance</button></a>
+          </div>
+        </div>
+      </li>
+      <br> <br> <br>
+      <li><a routerLink=""><i class="fa fa-cog icn" style="color: #fff;"></i> Settings</a></li>
+      
+    </ul>
+  </ng-sidebar>
+   <div ng-sidebar-content>
+   
+     <button (click)= "toggleSidebar()">
+       Open Contents
+     </button>
+    
+    
+   </div>
+</ng-sidebar-container>

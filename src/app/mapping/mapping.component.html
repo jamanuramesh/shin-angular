@@ -1,0 +1,68 @@
+<app-sidebar></app-sidebar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-7">
+      <br> <br>
+      <div class="col-md-9" style="background: #fff; padding: 10px;  color: #38424c; height: 350px;  ">
+        <div *ngFor="let l of userData2; let i = index">
+          <div class="col-md-6" style=" background-color: rgb(84 143 204); color: #fff; border: #548fcc;">
+            <!-- <div class="col-md-5">Candidate Name : {{l.Candidate_Name}} </div> -->
+            <!-- <div class="col-md-2"></div> -->
+            <div >{{l.JobPostion_Name}}</div>
+            <div style="font-size: 6;margin-left: 100px;"><span >Jobe Code:{{l.JobPosition_Id}}</span></div>
+          </div>
+
+          <div class="card"  style=" background-color: rgb(84 143 204); width: 170%; color: #fff; border: #548fcc;">
+               <div class="card-body">
+                 <div>
+                  <input type="checkbox" checked=true/><span style="margin-left:20px;">{{l.Candidate_Name}}</span>
+                  <div class="logo float-right">
+                    <img src="/assets/img/phone icon.png" width="13" height="13" alt="" style="margin-left:280px">
+                    <img src="/assets/img/search icon white.png" width="13" height="13" alt="" style="margin-left:10px">
+                    <img src="/assets/img/edit icon.png" width="13" height="13" alt="" style="margin-left:10px">
+                    <img src="/assets/img/download icon.png" width="13" height="13" alt="" style="margin-left:10px">
+                    <img src="/assets/img/forward icon.png" width="13" height="13" alt="" style="margin-left:10px">
+                    <img src="/assets/img/star icon.png" width="13" height="13" alt="" style="margin-left:10px">
+                  </div>
+                 </div>
+                  <div style="margin-left: 40px;">
+                    <div style="font-size: 3;">Email : {{l.Candidate_Email}}</div>   
+                    <div style="font-size: 3;">Phone No: {{l.Candidate_Phone}}</div>
+                    <div style="font-size: 3;">Location : {{l.Candidate_Location}}</div> 
+                  </div> 
+                    
+                    <div class="row" id="status">
+                      <div class="col-md-4">
+                         <img src="/assets/img/down arrow icon.png" width="15" height="15" alt="" style="margin-left:10px" (click)="l.isCollapsed = !l.isCollapsed" [attr.aria-expanded]="false" aria-controls="collapseExample">
+                        <br>
+                        <div id="collapseExample" [ngbCollapse]="!l.isCollapsed" >
+                          <h6>Education : {{l.Candidate_Education}}</h6> 
+                          <h6>Expereince : {{l.Candidate_work_exp}}</h6> 
+                          <h6>Top Skills : {{l.Candidate_Skills}}</h6> 
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                         <span>SMART Ranking</span>  <span style="margin-left: 140px;"><label class="pro" style="color: white">{{l.overall_score}}% &nbsp;</label></span>
+                        <!-- <span class="progress" style="margin-left: 10px; width: 140%;" type="button">  -->
+                           <progress style="width: 105%" value="{{l.overall_score}}" max="100">{{l.overall_score}}</progress>
+                        <!-- </span> -->
+                      </div>
+                      <div class="col-md-2">
+                        <img src="/assets/img/physometric icon.png" width="50" height="50" alt="" style="margin-left:10px">
+                      </div>
+                    </div>   
+               </div>
+            </div>
+            <!-- <div class="card"  style=" background-color: rgb(84 143 204); width: 158%; color: #fff; border: #548fcc;">
+              <img src="/assets/img/grid box icon.png" width="15" height="15" alt="" >
+              <img src="/assets/img/message icon.png" width="15" height="15" alt="" >
+            </div> -->
+              
+             <br>
+          </div>
+      </div>
+      </div>
+      </div>
+</div>
+      

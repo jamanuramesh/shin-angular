@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /> 
+</head>
+<body class="body">
+  <br> <br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+  
+   <form [formGroup]="jobInfoForm"  (ngSubmit)="onSubmit()">
+    <div class="card jobcrd">
+    <div class="row hdr">
+      <h5>Basic Information</h5>
+    </div>
+    <div class="card-body">
+          <div class="row">
+         <div class="col-md-4">
+         <label for="Name" class="ipthdr">Job Position</label>
+         <br>
+         <div class="form-group">
+          <input type="text" class="form-control dgn" list="cityname" (change)="onSortChange($event)" formControlName="jobname"  [ngClass]="{ 'is-invalid': submitted && f.jobname.errors }" [(ngModel)]="JobPostion_Name" required>
+          <datalist id="cityname">
+            <option  *ngFor="let i of jobList"   value="{{i.Job_Role}}">
+          </datalist>
+          <div *ngIf="submitted && f.jobname.errors" class="invalid-feedback">
+          <div *ngIf="f.jobname.errors.required">Job Position is required</div>
+          </div>
+         </div>
+
+        </div>
+     
+        <div class="col-md-4">
+        <label for="Name" class="ipthdr">Job Category/Function</label>
+        <br>
+        <div class="form-group">
+          <select name="function" class="form-control dgn" formControlName="jbcategory" [ngClass]="{ 'is-invalid': submitted && f.jbcategory.errors }" [(ngModel)]="job_category" required>
+            <option  value="">---</option>
+            <option  value="Development">Development</option>
+            <option  value="Marketing">Marketing</option>
+          </select>
+          <div *ngIf="submitted && f.jbcategory.errors" class="invalid-feedback">
+              <div *ngIf="f.jbcategory.errors.required">Job Category is required</div>
+          </div>
+        </div>
+      </div>
+       <!-- <div class="col-md-4"></div> -->
+       <div class="col-md-4">
+         <label for="Name" class="ipthdr">Job Type</label>
+        <br>
+        <div class="form-group">
+          <select name="function" class="form-control dgn" formControlName="jbtype" [ngClass]="{ 'is-invalid': submitted && f.jbtype.errors }" [(ngModel)]="job_type" required>
+            <option  value="">---</option>
+            <option value="Full Time">Full Time</option>
+            <option  value="Part Time">Part Time</option>
+            <option value="Internship">Internship</option>
+            <option  value="Contract">Contract</option>
+            <option  value="Volunteer">Volunteer</option>
+            <option  value="Client Office">Client Office</option>
+          </select>
+          <div *ngIf="submitted && f.jbtype.errors" class="invalid-feedback">
+              <div *ngIf="f.jbtype.errors.required">Job Type is required</div>
+          </div>
+        </div>
+       
+       </div>
+       <div class="col-md-4">
+        <label for="Name" class="ipthdr" >Department</label>
+        <br>
+          <div class="form-group">
+            <select name="function" class="form-control dgn" formControlName="dpname" [ngClass]="{ 'is-invalid': submitted && f.dpname.errors }" [(ngModel)]="dept_id" required>
+              <option  *ngFor="let i of deptList"   value="{{i.Dept_Id}}">{{i.Dept_Name}}</option>
+            </select>
+            <div *ngIf="submitted && f.dpname.errors" class="invalid-feedback">
+                <div *ngIf="f.dpname.errors.required">Department is required</div>
+            </div>
+          </div>
+    </div>
+      <!-- </div>
+      <div class="row"> -->
+        <div class="col-md-4">
+        <label for="Name" class="ipthdr">Job Location</label>
+        <br>
+        <div class="form-group">
+          <select name="function" class="form-control dgn" formControlName="location" [ngClass]="{ 'is-invalid': submitted && f.location.errors }" [(ngModel)]="loc_id" required>
+            <option  *ngFor="let i of LocData.data"   value="{{i.Loc_Id}}">{{i.Loc_Name}}</option>
+          </select>
+          <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+            <div *ngIf="f.location.errors.required">Job Location is required</div>
+            </div>
+        </div>
+
+<!-- 
+        <div class="form-group">
+         <input type="text" class="form-control dgn" formControlName="location" [ngClass]="{ 'is-invalid': submitted && f.location.errors }"  [(ngModel)]="loc_id" required>
+         <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+         <div *ngIf="f.location.errors.required">Job Location is required</div>
+         </div>
+        </div> -->
+
+       </div>
+       <!-- <div class="col-md-4"></div> -->
+       <div class="col-md-4">
+         <label for="Name" class="ipthdr">Hiring Type</label>
+        <br>
+        <div class="form-group">
+          <select name="function" class="form-control dgn" formControlName="htype" [ngClass]="{ 'is-invalid': submitted && f.htype.errors }" [(ngModel)]="hiring_type" required>
+            <option  value="">---</option>
+            <option  value="Lateral">Lateral</option>
+            <option value="Campus">Campus</option>
+          </select>
+          <div *ngIf="submitted && f.htype.errors" class="invalid-feedback">
+              <div *ngIf="f.htype.errors.required">Job Category is required</div>
+          </div>
+        </div>
+      </div>
+      <!-- </div>
+      <div class="row"> -->
+        <div class="col-md-4">
+        <label for="Name" class="ipthdr">No. Of Openings</label>
+        <br>
+        <div class="form-group">
+         <input type="number" class="form-control dgn" formControlName="openings" [ngClass]="{ 'is-invalid': submitted && f.openings.errors }" [(ngModel)]="no_of_openings" required>
+         <div *ngIf="submitted && f.openings.errors" class="invalid-feedback">
+         <div *ngIf="f.openings.errors.required">No. Of Openings is required</div>
+         </div>
+        </div>
+
+       </div>
+      </div>
+    </div>
+  </div>
+
+<br><br> 
+
+<div class="card jobcrd">
+  <div class="row hdr">
+    <h5>Job Description</h5>
+  </div>
+  <div class="card-body">
+        <div class="row">
+       <div class="col-md-12">
+       <br>
+       <div class="form-group">
+         <textarea type="text" class="form-control dgn"  style="height: 330px;" formControlName="jobdesc" [ngClass]="{ 'is-invalid': submitted && f.jobdesc.errors }" [(ngModel)]="job_desc" required>
+        </textarea>
+        <div *ngIf="submitted && f.jobdesc.errors" class="invalid-feedback">
+        <div *ngIf="f.jobdesc.errors.required">Job Description is required</div>
+        </div>
+       </div>
+       <br>
+      </div>
+      <div class="col-md-4"> <button type="submit" class="btn btn-info jbtn">Use Template</button></div>
+      <div class="col-md-4"><br></div>
+      <div class="col-md-4"> <button type="submit" class="btn btn-info jbtn">Save</button></div>
+      <br> <br>
+      <div class="col-md-12">
+        <h5>--------------------------------------------------------OR----------------------------------------------</h5>
+      </div>
+     
+      <br> <br>
+      <!--CODE FOR FILE UPLOADING-->
+      <br> <br>
+      <div class="col-md-12 hdr" style="text-align: center;">
+        
+        <div class="form-group">
+          <label for="file"><h5>Drop your JD here</h5></label> &nbsp;
+          <!-- <input type="file"
+                 id="file"
+                 (change)="handleFileInput($event.target.files)"> -->
+      </div>
+      </div>
+    </div>
+      <br> <br>
+      
+      <div class="row">
+       <h6 style="color: #548fcc;">SALARY</h6>
+       <br> <br>
+        <!-- <ng5-slider  [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider> -->
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+       <!-- <ng5-slider  [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider> -->
+        <input type="number" class="form-control " formControlName="mnslry" placeholder="Min SALARY" [ngClass]="{ 'is-invalid': submitted && f.mnslry.errors }" [(ngModel)]="min_salary" required>
+        <div *ngIf="submitted && f.mnslry.errors" class="invalid-feedback">
+          <div *ngIf="f.mnslry.errors.required">Min Salary is required</div>
+          </div>
+      </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <select name = "exps" class="form-control dgn"   style="margin-left: -42px; width: 54%;">
+                <option  value="LPA">LPA</option>
+                <!-- <option value="Campus">In Months</option> -->
+              </select>
+            </div>
+         </div>
+
+         <div class="col-md-3">
+          <!-- <ng5-slider  [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider> -->
+         <input type="number" class="form-control " formControlName="mxslry" placeholder="Max SALARY" [ngClass]="{ 'is-invalid': submitted && f.mxslry.errors }" [(ngModel)]="max_salary" required>
+         <div *ngIf="submitted && f.mxslry.errors" class="invalid-feedback">
+          <div *ngIf="f.mxslry.errors.required">Max Salary is required</div>
+          </div>
+        </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <select name = "exps" class="form-control dgn"   style="margin-left: -42px; width: 54%;">
+                <option  value="LPA">LPA</option>
+                <!-- <option value="Campus">In Months</option> -->
+              </select>
+            </div>
+         </div>
+
+         <br>
+      </div>
+      <br> 
+   
+  </div>
+</div>
+
+<br><br> 
+
+<div class="card jobcrd">
+  <div class="row hdr">
+    <h5>Expereince & Skills</h5>
+  </div>
+  <div class="card-body">
+        <div class="row">
+          <h6 style="color: #548fcc; margin-left: 18px;" >Experience Level</h6>  
+           <br> <br>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+         <!-- <ng5-slider  [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider> -->
+          <input type="number" class="form-control " formControlName="mnexp" placeholder="Min Exp" [ngClass]="{ 'is-invalid': submitted && f.mnexp.errors }" [(ngModel)]="min_exp" required>
+          <div *ngIf="submitted && f.mnexp.errors" class="invalid-feedback">
+            <div *ngIf="f.mnexp.errors.required">Min Experience is required</div>
+            </div>
+        </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <select  class="form-control dgn" formControlName="inmnexp" [(ngModel)]="expinmin"  [ngClass]="{ 'is-invalid': submitted && f.inmnexp.errors }" style="margin-left: -42px; width: 54%;" required>
+                  <option  value="Years">In Years</option>
+                  <option value="Months">In Months</option>
+                </select>
+                <div *ngIf="submitted && f.inmnexp.errors" class="invalid-feedback">
+                  <div *ngIf="f.inmnexp.errors.required">Min Experience is required</div>
+                  </div>
+              </div>
+           </div>
+  
+           <div class="col-md-3">
+            <!-- <ng5-slider  [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider> -->
+           <input type="number" class="form-control " formControlName="mxexp" placeholder="Max Exp" [ngClass]="{ 'is-invalid': submitted && f.mxexp.errors }" [(ngModel)]="max_exp" required>
+           <div *ngIf="submitted && f.mxexp.errors" class="invalid-feedback">
+            <div *ngIf="f.mxexp.errors.required">Max Experience is required</div>
+            </div>
+          </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <select  class="form-control dgn" formControlName="inmxexp" [(ngModel)]="expinmax"  [ngClass]="{ 'is-invalid': submitted && f.inmxexp.errors }" style="margin-left: -42px; width: 54%;" required>
+                  <option  value="Years">In Years</option>
+                  <option value="Months">In Months</option>
+                </select>
+                <div *ngIf="submitted && f.inmxexp.errors" class="invalid-feedback">
+                  <div *ngIf="f.inmxexp.errors.required">Max Experience is required</div>
+                  </div>
+              </div>
+           </div>
+  
+           <br>
+        </div>
+        <br> <br>
+        <div class="row">
+         
+          <label for="Name" class="ipthdr" style="margin-left: 18px;">Skills</label>
+          <mat-form-field class="chip">
+            <mat-chip-list #chipList>
+              <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+              [removable]="removable" (removed)="remove(fruit)">
+          {{fruit.name}}
+          <mat-icon matChipRemove *ngIf="removable">x</mat-icon>
+  
+            </mat-chip>
+  
+            <input placeholder="" class="form-control"  formControlName="jobskill" [(ngModel)]="skills" [ngClass]="{ 'is-invalid': submitted && f.jobskill.errors }" required
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>  
+
+       <div class="col-md-6">
+                
+ 
+    
+
+       <!-- <div class="form-group">
+        <input type="text"class="form-control dgn" >
+       </div> -->
+       <br>
+      </div>
+      <div class="col-md-4"> 
+        <!-- <button type="submit" class="btn btn-info jbtn">Add</button> -->
+      </div>
+
+      <div class="col-md-12">
+        <br>
+
+  
+        <div class="form-group">
+   
+     
+        
+   
+  
+
+
+         <div *ngIf="submitted && f.jobskill.errors" class="invalid-feedback">
+         <div *ngIf="f.jobskill.errors.required">Skill is required</div>
+   
+         </div>
+        </div>
+        <br>
+       </div>
+      
+      <!-- <div class="col-md-4"> <button type="submit" class="btn btn-info jbtn">Save</button></div> -->
+      <br> <br>
+      
+     
+     
+    </div>
+  </div>
+</div>
+
+<br> <br> <br>   
+            <div class="row">
+              <div class="col-md-3">
+                <button type="submit" class="btsave" style="width: 105px; height: 35px; margin-left: 400px;">Save</button>
+              </div>
+              <div class="col-md-1"></div>
+        
+                <div class="col-md-3">
+               <button type="submit" class="btsave" style="width: 105px; height: 35px; margin-left:100px">Next Step</button>
+                </div>
+             
+              
+            </div>   
+          </form> 
+         
+             
+
+</div>
+</div>
+</div>
+ 
+
+</body>
+ </html>
+  
+
